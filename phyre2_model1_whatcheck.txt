@@ -1,0 +1,2529 @@
+************************************************************************
+********** REPORT OF PROTEIN ANALYSIS  by the WHAT IF program **********
+************************************************************************
+
+Date : 2018-12-29
+This report was created by WHAT IF version WHAT IF 15.0 
+
+This document is a WHAT_CHECK 15.0 report for a PDB-file. Each reported
+fact has an assigned severity, one of:
+
+error  : Items marked as errors are considered severe problems requiring
+         immediate attention.
+warning: Either less severe problems or uncommon structural features. These
+         still need special attention.
+note   : Statistical values, plots, or other verbose results of tests and
+         analyses that have been performed.
+
+If alternate conformations are present, only the first is evaluated. Hydrogen
+atoms are only included if explicitly requested, and even then they are not
+used in all checks. The software functions less well for non-canonical amino
+acids and exotic ligands than for the 20 canonical residues and canonical
+nucleic acids.
+
+Some remarks regarding the output:
+
+Residues/atoms in tables are normally given in a few parts:
+
+A number. This is the internal sequence number of the residue used by WHAT IF.
+    The first residues in the file get number 1, 2, etc.
+The residue type. Normally this is a three letter amino acid type.
+The sequence number, between brackets. This is the residue number as it was
+    given in the input file. It can be followed by the insertion code.
+The chain identifier. A single character. If no chain identifier was given in
+    the input file, this will be a minus sign or a blank.
+A model number. If no model number exists, like in most X-ray files, this will
+    be a blank or occasionally a minus sign.
+In case an atom is part of the output, the atom will be listed using the PDB
+    nomenclature for type and identifier.
+
+To indicate the normality of a score, the score may be expressed as a Z-value
+   or Z-score. This is just the number of standard deviations that the score
+   deviates from the expected value. A property of Z-values is that the
+   root-mean-square of a group of Z-values (the RMS Z-value) is expected to be
+   1.0. Z-values above 4.0 and below -4.0 are very uncommon. If a Z-score is
+   used in WHAT IF, the accompanying text will explain how the expected value
+   and standard deviation were obtained.
+The names of nucleic acids are DGUA, DTHY, OCYT, OADE, etc. The first character
+   is a D or O for DNA or RNA respectively. This circumvents ambiguities in the
+   many old PDB files in which DNA and RNA were both called A, C, G, and T.
+
+
+
+=========================================
+==== Compound code /var/tmp/whatif/tmpulSdCP//&FIL1.fil             ====
+=========================================
+ 
+# 1 # Note: Introduction
+WHAT CHECK needs to read a PDB file before it can check it. It does a
+series of checks upon reading the file. The results of these checks are
+reported in this section (section 2.1). The rest of the report will be more
+systematic in that section 2.2 reports on administrative problems. Section
+2.3 gives descriptive output that is not directly validating things but
+more telling you how WHAT CHECK interpreted the input file. Section 2.4
+looks at B-factors, occupancies, and the presence/absence of (spurious)
+atoms. Section 2.5 deals with nomenclature problems. Section 2.6 deals with
+geometric problems like bond lengths and bond angles. Section 2.7 deals with
+torsion angle issues. Section 2.8 looks at atomic clashes. Section 2.9 deals
+with packing, accessibility, etc, issues. Section 2.10 deals with hydrogen
+bonds, ion packing, and other things that can be summarized under the common
+name charge-charge interactions. Section 2.11 gives a summary of whole report
+and tells you (if applicable) which symmetry matrices were used. Section 2.12
+tells the crystallographer which are the things most in need of manual
+correction. And the last section, section 2.13, lists all residues sorted
+by their need for visual inspection in light of the electron density.
+ 
+# 2 # Warning: No header information
+No, or very inadequate, header information was observed upon reading the
+PDB file header records. This information should be available in the form
+of a series of TITLE, KEYWRDS, and JRNL lines. Missing this information
+does not hamper the validation in any way, but it is nevertheless not nice
+that this information is missing.
+ 
+# 3 # Error: Missing unit cell information
+No SCALE matrix is given in the PDB file.
+ 
+# 4 # Error: Missing symmetry information
+Problem: No CRYST1 card is given in the PDB file.
+SYMMETRY will be unavailable for this molecule.
+ 
+# 5 # Note: No strange inter-chain connections detected
+No covalent bonds have been detected between molecules with non-identical
+chain identifiers.
+ 
+# 6 # Note: No duplicate atom names in ligands
+All atom names in ligands (if any) seem adequately unique.
+ 
+# 7 # Note: In all cases the primary alternate atom was used
+WHAT CHECK saw no need to make any alternate atom corrections (which means
+they either are all correct, or there are none).
+ 
+# 8 # Note: No residues detected inside ligands
+Either this structure does not contain ligands with amino acid groups inside
+it, or their naming is proper (enough).
+ 
+# 9 # Note: No attached groups interfere with hydrogen bond calculations
+It seems there are no sugars, lipids, etc., bound (or very close) to atoms
+that otherwise could form hydrogen bonds.
+ 
+# 10 # Note: No probable side chain atoms with zero occupancy detected.
+Either there are no side chain atoms with zero occupancy, or the side chain
+atoms with zero occupancy were not present in the input PDB file (in which
+case they are listed as missing atoms), or their positions are sufficiently
+improbable to warrant a zero occupancy.
+ 
+# 11 # Note: No probable backbone atoms with zero occupancy detected.
+Either there are no backbone atoms with zero occupancy, or the backbone
+atoms with zero occupancy were left out of the input PDB file (in
+which case they are listed as missing atoms), or their positions are
+sufficiently improbable to warrant a zero occupancy.
+ 
+# 12 # Note: All residues have a complete backbone.
+No residues have missing backbone atoms.
+ 
+# 13 # Note: No C-alpha only residues
+There are no residues that consist of only an alpha carbon atom.
+ 
+# 14 # Note: Content of the PDB file as interpreted by WHAT CHECK
+Content of the PDB file as interpreted by WHAT CHECK.
+WHAT CHECK has read your PDB file, and stored it internally in what is called
+'the soup'. The content of this soup is listed here. An extensive explanation
+of all frequently used WHAT CHECK output formats can be found at
+swift.cmbi.ru.nl. Look under output formats. A course on reading this
+'Molecules' table is part of the WHAT CHECK website.
+ 
+     1     1 (  159)   480 (  708)   Protein             checkset
+     2   481 (  709)   708 (  936)   Protein             checkset
+MODELs skipped upon reading PDB file: 0
+X-ray structure. No MODELs found
+The total number of amino acids found is 708.
+No nucleic acids observed in input file
+No sugars recognized in input file
+No water observed in input file
+Residue numbers increase monotonously OK
+ 
+# 15 # Note: Ramachandran plot
+In this Ramachandran plot x-signs represent glycines, squares represent
+prolines, and plus-signs represent the other residues. If too many
+plus-signs fall outside the contoured areas then the molecule is poorly
+refined (or worse). Proline can only occur in the narrow region around
+phi=-60 that also falls within the other contour islands.
+ 
+In a colour picture, the residues that are part of a helix are shown in blue,
+strand residues in red. Preferred regions for helical residues are drawn in
+blue, for strand residues in red, and for all other residues in green. A full
+explanation of the Ramachandran plot together with a series of examples can
+be found at the WHAT CHECK website [REF].
+ 
+In the TeX file, a plot has been inserted here
+ 
+Chain without chain identifier
+ 
+# 16 # Note: Secondary structure
+This is the secondary structure according to DSSP. Only helix (H), overwound
+or 3/10-helix (3), strand (S), turn (T) and coil (blank) are shown [REF].
+All DSSP related information can be found at swift.cmbi.ru.nl/gv/dssp/
+This is not really a structure validation option, but a very scattered
+secondary structure (i.e. many strands of only a few residues length, many
+Ts inside helices, etc) tends to indicate a poor structure. A full
+explanation of the DSSP secondary structure determination program together
+with a series of examples can be found at the WHAT CHECK website [REF].
+ 
+Secondary structure assignment
+                     10        20        30        40        50        60
+                      |         |         |         |         |         |
+    1 -   60 HAPWNVLCREAEFLKLKMPTKKMYHINETRGLLKKINSVLQKITDPIQPKVAEHRPQTMK
+( 159)-( 218) SS     TTHHHHHTHHHHHHTTT SSSSS      SSSSS  HHHHHHHHTT    SS
+                     70        80        90       100       110       120
+                      |         |         |         |         |         |
+   61 -  120 RLSYPFSREKQHLFDLSDKDSFFDSKTRSTIVYEILKRTTCTKAKYSMGITSLLANGVYA
+( 219)-( 278)          SS            HHHHHHHHHHHHH     HHHHHH HHHHHHHT SS
+                    130       140       150       160       170       180
+                      |         |         |         |         |         |
+  121 -  180 AAYPLHDGDYNGENVEFNDRKLLYEEWARYGVFYKYQPIDLVRKYFGEKIGLYFAWLGVY
+( 279)-( 338)S                 HHHHHHHHT  TT       HHHHHHHH HHHHHHHHHHHHH
+                    190       200       210       220       230       240
+                      |         |         |         |         |         |
+  181 -  240 TQMLIPASIVGIIVFLYGCATMDENIPSMEMCDQRHNITMCPLCDKTCSYWKMSSACATA
+( 339)-( 398)HHHHHHHHHHHHHHHHHHHHTHHH  HHHHHH                    TTT  HHH
+                    250       260       270       280       290       300
+                      |         |         |         |         |         |
+  241 -  300 RASHLFDNPATVFFSVFMALWAATFMEHWKRKQMRLNYRWDLTGFEEEEEAVKDHPRAEY
+( 399)-( 458)HHHHHH  TTHHHHHHHHHHHHHHHHHHHHHHHHHHHHH        TT     HHHHHH
+                    310       320       330       340       350       360
+                      |         |         |         |         |         |
+  301 -  360 EATWRDRFPAYLTNLVSIIFMIAVTFAIVLGVIIYRISMAAALAMNSSPSVRSNIRVTVT
+( 459)-( 565)HHH TT     HHHHHHHHHHHHHHHHHHHHHHHHHHHHTT   HHHTT        HHH
+                    370       380       390       400       410       420
+                      |         |         |         |         |         |
+  361 -  420 ATAVIINLVVIILLDEVYGCIARWLTKIEVPKTEKSFEERLIFKAFLLKFVNSYTPIFYV
+( 566)-( 625)HHHHHHHHHHHHHHHHHHHHHHHHHHHHH    HHHHHHHHHHHHHHHHHHHHHHHHHHH
+                    430       440       450       460       470       480
+                      |         |         |         |         |         |
+  421 -  480 AFFKGRFVGRPGDYVYIFRSFRMEECAPGGCLMELCIQLSIIMLGKQLIQNNLFEIGIPK
+( 626)-( 708)HT             SSTTTSS     TT THHHHHHHHHHHHHHHHHHHHHHHHHT
+                    490       500       510       520       530       540
+                      |         |         |         |         |         |
+  481 -  540 RKQRYEVDYNLEPFAGLTPEYMEMIIQFGFVTLFVASFPLAPLFALLNNIIEIRLDAKKF
+( 709)-( 768)   HHHHHHT       HHHHHHHHHHHHHHHT       HHHHHHHHHHHHHHHHHHHH
+                    550       560       570       580       590       600
+                      |         |         |         |         |         |
+  541 -  600 VTELRRPVAVRAKDIGIWYNILRGIGKLAVIINAFVISFTSDFIPRLVYLYMYSKNGTMH
+( 769)-( 828)HHH            THHHHHHHHHHHHHHHHHHHHHHHHT  HHHHHHHHH
+                    610       620       630       640       650       660
+                      |         |         |         |         |         |
+  601 -  660 GFVNHTLSSFNVSDFQNGTAPNDPLDLGYEVQICRYKDYREPPWSENKYDISKDFWAVLA
+( 829)-( 888) HHHHH   SSTT                   SS        TT        HHHHHHHH
+                    670       680       690       700
+                      |         |         |         |
+  661 -  708 ARLAFVIVFQNLVMFMSDFVDWVIPDIPKDISQQIHKEKVLMVELFMR
+( 889)-( 936)HHHHHHHHHHHHHHHHHHHHHHH     HHHHHHHHHHHHHHHHHH
+ 
+ 
+ 
+ 
+# 17 # Note: No rounded coordinates detected
+No significant rounding of atom coordinates has been detected.
+ 
+# 18 # Note: No artificial side chains detected
+No artificial side-chain positions characterized by chi-1=0.0 or chi-1=180.0
+have been detected.
+ 
+# 19 # Note: No missing atoms detected in residues
+All expected atoms are present in residues. This validation option has not
+looked at 'things' that can or should be attached to the elementary building
+blocks (amino acids, nucleotides). Even the C-terminal oxygens are treated
+separately.
+ 
+# 20 # Warning: B-factors outside the range 0.0 - 100.0
+In principle, B-factors can have a very wide range of values, but in
+practice, B-factors should not be zero while B-factors above 100.0
+are a good indicator that the location of that atom is meaningless. Be
+aware that the cutoff at 100.0 is arbitrary. 'High' indicates that atoms
+with a B-factor > 100.0 were observed; 'Zero' indicates that atoms with
+a B-factor of zero were observed.
+ 
+    1 HIS  ( 159-) -  -   Zero
+    2 ALA  ( 160-) -  -   Zero
+    3 PRO  ( 161-) -  -   Zero
+    4 TRP  ( 162-) -  -   Zero
+    5 ASN  ( 163-) -  -   Zero
+    6 VAL  ( 164-) -  -   Zero
+    7 LEU  ( 165-) -  -   Zero
+    8 CYS  ( 166-) -  -   Zero
+    9 ARG  ( 167-) -  -   Zero
+   10 GLU  ( 168-) -  -   Zero
+   11 ALA  ( 169-) -  -   Zero
+   12 GLU  ( 170-) -  -   Zero
+   13 PHE  ( 171-) -  -   Zero
+   14 LEU  ( 172-) -  -   Zero
+   15 LYS  ( 173-) -  -   Zero
+   16 LEU  ( 174-) -  -   Zero
+   17 LYS  ( 175-) -  -   Zero
+   18 MET  ( 176-) -  -   Zero
+   19 PRO  ( 177-) -  -   Zero
+   20 THR  ( 178-) -  -   Zero
+   21 LYS  ( 179-) -  -   Zero
+   22 LYS  ( 180-) -  -   Zero
+   23 MET  ( 181-) -  -   Zero
+   24 TYR  ( 182-) -  -   Zero
+   25 HIS  ( 183-) -  -   Zero
+   26 ILE  ( 184-) -  -   Zero
+   27 ASN  ( 185-) -  -   Zero
+   28 GLU  ( 186-) -  -   Zero
+   29 THR  ( 187-) -  -   Zero
+   30 ARG  ( 188-) -  -   Zero
+   31 GLY  ( 189-) -  -   Zero
+   32 LEU  ( 190-) -  -   Zero
+   33 LEU  ( 191-) -  -   Zero
+   34 LYS  ( 192-) -  -   Zero
+   35 LYS  ( 193-) -  -   Zero
+   36 ILE  ( 194-) -  -   Zero
+   37 ASN  ( 195-) -  -   Zero
+   38 SER  ( 196-) -  -   Zero
+   39 VAL  ( 197-) -  -   Zero
+   40 LEU  ( 198-) -  -   Zero
+   41 GLN  ( 199-) -  -   Zero
+   42 LYS  ( 200-) -  -   Zero
+   43 ILE  ( 201-) -  -   Zero
+   44 THR  ( 202-) -  -   Zero
+   45 ASP  ( 203-) -  -   Zero
+   46 PRO  ( 204-) -  -   Zero
+   47 ILE  ( 205-) -  -   Zero
+   48 GLN  ( 206-) -  -   Zero
+   49 PRO  ( 207-) -  -   Zero
+   50 LYS  ( 208-) -  -   Zero
+   51 VAL  ( 209-) -  -   Zero
+   52 ALA  ( 210-) -  -   Zero
+   53 GLU  ( 211-) -  -   Zero
+   54 HIS  ( 212-) -  -   Zero
+   55 ARG  ( 213-) -  -   Zero
+   56 PRO  ( 214-) -  -   Zero
+   57 GLN  ( 215-) -  -   Zero
+   58 THR  ( 216-) -  -   Zero
+   59 MET  ( 217-) -  -   Zero
+   60 LYS  ( 218-) -  -   Zero
+   61 ARG  ( 219-) -  -   Zero
+   62 LEU  ( 220-) -  -   Zero
+   63 SER  ( 221-) -  -   Zero
+   64 TYR  ( 222-) -  -   Zero
+   65 PRO  ( 223-) -  -   Zero
+   66 PHE  ( 224-) -  -   Zero
+   67 SER  ( 225-) -  -   Zero
+   68 ARG  ( 226-) -  -   Zero
+   69 GLU  ( 227-) -  -   Zero
+   70 LYS  ( 228-) -  -   Zero
+   71 GLN  ( 229-) -  -   Zero
+   72 HIS  ( 230-) -  -   Zero
+   73 LEU  ( 231-) -  -   Zero
+   74 PHE  ( 232-) -  -   Zero
+   75 ASP  ( 233-) -  -   Zero
+   76 LEU  ( 234-) -  -   Zero
+   77 SER  ( 235-) -  -   Zero
+   78 ASP  ( 236-) -  -   Zero
+   79 LYS  ( 237-) -  -   Zero
+   80 ASP  ( 238-) -  -   Zero
+   81 SER  ( 239-) -  -   Zero
+   82 PHE  ( 240-) -  -   Zero
+   83 PHE  ( 241-) -  -   Zero
+   84 ASP  ( 242-) -  -   Zero
+   85 SER  ( 243-) -  -   Zero
+   86 LYS  ( 244-) -  -   Zero
+   87 THR  ( 245-) -  -   Zero
+   88 ARG  ( 246-) -  -   Zero
+   89 SER  ( 247-) -  -   Zero
+   90 THR  ( 248-) -  -   Zero
+   91 ILE  ( 249-) -  -   Zero
+   92 VAL  ( 250-) -  -   Zero
+   93 TYR  ( 251-) -  -   Zero
+   94 GLU  ( 252-) -  -   Zero
+   95 ILE  ( 253-) -  -   Zero
+   96 LEU  ( 254-) -  -   Zero
+   97 LYS  ( 255-) -  -   Zero
+   98 ARG  ( 256-) -  -   Zero
+   99 THR  ( 257-) -  -   Zero
+  100 THR  ( 258-) -  -   Zero
+  101 CYS  ( 259-) -  -   Zero
+  102 THR  ( 260-) -  -   Zero
+  103 LYS  ( 261-) -  -   Zero
+  104 ALA  ( 262-) -  -   Zero
+  105 LYS  ( 263-) -  -   Zero
+  106 TYR  ( 264-) -  -   Zero
+  107 SER  ( 265-) -  -   Zero
+  108 MET  ( 266-) -  -   Zero
+  109 GLY  ( 267-) -  -   Zero
+  110 ILE  ( 268-) -  -   Zero
+  111 THR  ( 269-) -  -   Zero
+  112 SER  ( 270-) -  -   Zero
+  113 LEU  ( 271-) -  -   Zero
+  114 LEU  ( 272-) -  -   Zero
+  115 ALA  ( 273-) -  -   Zero
+  116 ASN  ( 274-) -  -   Zero
+  117 GLY  ( 275-) -  -   Zero
+  118 VAL  ( 276-) -  -   Zero
+  119 TYR  ( 277-) -  -   Zero
+  120 ALA  ( 278-) -  -   Zero
+  121 ALA  ( 279-) -  -   Zero
+  122 ALA  ( 280-) -  -   Zero
+  123 TYR  ( 281-) -  -   Zero
+  124 PRO  ( 282-) -  -   Zero
+  125 LEU  ( 283-) -  -   Zero
+  126 HIS  ( 284-) -  -   Zero
+  127 ASP  ( 285-) -  -   Zero
+  128 GLY  ( 286-) -  -   Zero
+  129 ASP  ( 287-) -  -   Zero
+  130 TYR  ( 288-) -  -   Zero
+  131 ASN  ( 289-) -  -   Zero
+  132 GLY  ( 290-) -  -   Zero
+  133 GLU  ( 291-) -  -   Zero
+  134 ASN  ( 292-) -  -   Zero
+  135 VAL  ( 293-) -  -   Zero
+  136 GLU  ( 294-) -  -   Zero
+  137 PHE  ( 295-) -  -   Zero
+  138 ASN  ( 296-) -  -   Zero
+  139 ASP  ( 297-) -  -   Zero
+  140 ARG  ( 298-) -  -   Zero
+  141 LYS  ( 299-) -  -   Zero
+  142 LEU  ( 300-) -  -   Zero
+  143 LEU  ( 301-) -  -   Zero
+  144 TYR  ( 302-) -  -   Zero
+  145 GLU  ( 303-) -  -   Zero
+  146 GLU  ( 304-) -  -   Zero
+  147 TRP  ( 305-) -  -   Zero
+  148 ALA  ( 306-) -  -   Zero
+  149 ARG  ( 307-) -  -   Zero
+  150 TYR  ( 308-) -  -   Zero
+  151 GLY  ( 309-) -  -   Zero
+  152 VAL  ( 310-) -  -   Zero
+  153 PHE  ( 311-) -  -   Zero
+  154 TYR  ( 312-) -  -   Zero
+  155 LYS  ( 313-) -  -   Zero
+  156 TYR  ( 314-) -  -   Zero
+  157 GLN  ( 315-) -  -   Zero
+  158 PRO  ( 316-) -  -   Zero
+  159 ILE  ( 317-) -  -   Zero
+  160 ASP  ( 318-) -  -   Zero
+  161 LEU  ( 319-) -  -   Zero
+  162 VAL  ( 320-) -  -   Zero
+  163 ARG  ( 321-) -  -   Zero
+  164 LYS  ( 322-) -  -   Zero
+  165 TYR  ( 323-) -  -   Zero
+  166 PHE  ( 324-) -  -   Zero
+  167 GLY  ( 325-) -  -   Zero
+  168 GLU  ( 326-) -  -   Zero
+  169 LYS  ( 327-) -  -   Zero
+  170 ILE  ( 328-) -  -   Zero
+  171 GLY  ( 329-) -  -   Zero
+  172 LEU  ( 330-) -  -   Zero
+  173 TYR  ( 331-) -  -   Zero
+  174 PHE  ( 332-) -  -   Zero
+  175 ALA  ( 333-) -  -   Zero
+  176 TRP  ( 334-) -  -   Zero
+  177 LEU  ( 335-) -  -   Zero
+  178 GLY  ( 336-) -  -   Zero
+  179 VAL  ( 337-) -  -   Zero
+  180 TYR  ( 338-) -  -   Zero
+  181 THR  ( 339-) -  -   Zero
+  182 GLN  ( 340-) -  -   Zero
+  183 MET  ( 341-) -  -   Zero
+  184 LEU  ( 342-) -  -   Zero
+  185 ILE  ( 343-) -  -   Zero
+  186 PRO  ( 344-) -  -   Zero
+  187 ALA  ( 345-) -  -   Zero
+  188 SER  ( 346-) -  -   Zero
+  189 ILE  ( 347-) -  -   Zero
+  190 VAL  ( 348-) -  -   Zero
+  191 GLY  ( 349-) -  -   Zero
+  192 ILE  ( 350-) -  -   Zero
+  193 ILE  ( 351-) -  -   Zero
+  194 VAL  ( 352-) -  -   Zero
+  195 PHE  ( 353-) -  -   Zero
+  196 LEU  ( 354-) -  -   Zero
+  197 TYR  ( 355-) -  -   Zero
+  198 GLY  ( 356-) -  -   Zero
+  199 CYS  ( 357-) -  -   Zero
+  200 ALA  ( 358-) -  -   Zero
+  201 THR  ( 359-) -  -   Zero
+  202 MET  ( 360-) -  -   Zero
+  203 ASP  ( 361-) -  -   Zero
+  204 GLU  ( 362-) -  -   Zero
+  205 ASN  ( 363-) -  -   Zero
+  206 ILE  ( 364-) -  -   Zero
+  207 PRO  ( 365-) -  -   Zero
+  208 SER  ( 366-) -  -   Zero
+  209 MET  ( 367-) -  -   Zero
+  210 GLU  ( 368-) -  -   Zero
+  211 MET  ( 369-) -  -   Zero
+  212 CYS  ( 370-) -  -   Zero
+  213 ASP  ( 371-) -  -   Zero
+  214 GLN  ( 372-) -  -   Zero
+  215 ARG  ( 373-) -  -   Zero
+  216 HIS  ( 374-) -  -   Zero
+  217 ASN  ( 375-) -  -   Zero
+  218 ILE  ( 376-) -  -   Zero
+  219 THR  ( 377-) -  -   Zero
+  220 MET  ( 378-) -  -   Zero
+  221 CYS  ( 379-) -  -   Zero
+  222 PRO  ( 380-) -  -   Zero
+  223 LEU  ( 381-) -  -   Zero
+  224 CYS  ( 382-) -  -   Zero
+  225 ASP  ( 383-) -  -   Zero
+  226 LYS  ( 384-) -  -   Zero
+  227 THR  ( 385-) -  -   Zero
+  228 CYS  ( 386-) -  -   Zero
+  229 SER  ( 387-) -  -   Zero
+  230 TYR  ( 388-) -  -   Zero
+  231 TRP  ( 389-) -  -   Zero
+  232 LYS  ( 390-) -  -   Zero
+  233 MET  ( 391-) -  -   Zero
+  234 SER  ( 392-) -  -   Zero
+  235 SER  ( 393-) -  -   Zero
+  236 ALA  ( 394-) -  -   Zero
+  237 CYS  ( 395-) -  -   Zero
+  238 ALA  ( 396-) -  -   Zero
+  239 THR  ( 397-) -  -   Zero
+  240 ALA  ( 398-) -  -   Zero
+  241 ARG  ( 399-) -  -   Zero
+  242 ALA  ( 400-) -  -   Zero
+  243 SER  ( 401-) -  -   Zero
+  244 HIS  ( 402-) -  -   Zero
+  245 LEU  ( 403-) -  -   Zero
+  246 PHE  ( 404-) -  -   Zero
+  247 ASP  ( 405-) -  -   Zero
+  248 ASN  ( 406-) -  -   Zero
+  249 PRO  ( 407-) -  -   Zero
+  250 ALA  ( 408-) -  -   Zero
+  251 THR  ( 409-) -  -   Zero
+  252 VAL  ( 410-) -  -   Zero
+  253 PHE  ( 411-) -  -   Zero
+  254 PHE  ( 412-) -  -   Zero
+  255 SER  ( 413-) -  -   Zero
+  256 VAL  ( 414-) -  -   Zero
+  257 PHE  ( 415-) -  -   Zero
+  258 MET  ( 416-) -  -   Zero
+  259 ALA  ( 417-) -  -   Zero
+  260 LEU  ( 418-) -  -   Zero
+  261 TRP  ( 419-) -  -   Zero
+  262 ALA  ( 420-) -  -   Zero
+  263 ALA  ( 421-) -  -   Zero
+  264 THR  ( 422-) -  -   Zero
+  265 PHE  ( 423-) -  -   Zero
+  266 MET  ( 424-) -  -   Zero
+  267 GLU  ( 425-) -  -   Zero
+  268 HIS  ( 426-) -  -   Zero
+  269 TRP  ( 427-) -  -   Zero
+  270 LYS  ( 428-) -  -   Zero
+  271 ARG  ( 429-) -  -   Zero
+  272 LYS  ( 430-) -  -   Zero
+  273 GLN  ( 431-) -  -   Zero
+  274 MET  ( 432-) -  -   Zero
+  275 ARG  ( 433-) -  -   Zero
+  276 LEU  ( 434-) -  -   Zero
+  277 ASN  ( 435-) -  -   Zero
+  278 TYR  ( 436-) -  -   Zero
+  279 ARG  ( 437-) -  -   Zero
+  280 TRP  ( 438-) -  -   Zero
+  281 ASP  ( 439-) -  -   Zero
+  282 LEU  ( 440-) -  -   Zero
+  283 THR  ( 441-) -  -   Zero
+  284 GLY  ( 442-) -  -   Zero
+  285 PHE  ( 443-) -  -   Zero
+  286 GLU  ( 444-) -  -   Zero
+  287 GLU  ( 445-) -  -   Zero
+  288 GLU  ( 446-) -  -   Zero
+  289 GLU  ( 447-) -  -   Zero
+  290 GLU  ( 448-) -  -   Zero
+  291 ALA  ( 449-) -  -   Zero
+  292 VAL  ( 450-) -  -   Zero
+  293 LYS  ( 451-) -  -   Zero
+  294 ASP  ( 452-) -  -   Zero
+  295 HIS  ( 453-) -  -   Zero
+  296 PRO  ( 454-) -  -   Zero
+  297 ARG  ( 455-) -  -   Zero
+  298 ALA  ( 456-) -  -   Zero
+  299 GLU  ( 457-) -  -   Zero
+  300 TYR  ( 458-) -  -   Zero
+  301 GLU  ( 459-) -  -   Zero
+  302 ALA  ( 460-) -  -   Zero
+  303 THR  ( 508-) -  -   Zero
+  304 TRP  ( 509-) -  -   Zero
+  305 ARG  ( 510-) -  -   Zero
+  306 ASP  ( 511-) -  -   Zero
+  307 ARG  ( 512-) -  -   Zero
+  308 PHE  ( 513-) -  -   Zero
+  309 PRO  ( 514-) -  -   Zero
+  310 ALA  ( 515-) -  -   Zero
+  311 TYR  ( 516-) -  -   Zero
+  312 LEU  ( 517-) -  -   Zero
+  313 THR  ( 518-) -  -   Zero
+  314 ASN  ( 519-) -  -   Zero
+  315 LEU  ( 520-) -  -   Zero
+  316 VAL  ( 521-) -  -   Zero
+  317 SER  ( 522-) -  -   Zero
+  318 ILE  ( 523-) -  -   Zero
+  319 ILE  ( 524-) -  -   Zero
+  320 PHE  ( 525-) -  -   Zero
+  321 MET  ( 526-) -  -   Zero
+  322 ILE  ( 527-) -  -   Zero
+  323 ALA  ( 528-) -  -   Zero
+  324 VAL  ( 529-) -  -   Zero
+  325 THR  ( 530-) -  -   Zero
+  326 PHE  ( 531-) -  -   Zero
+  327 ALA  ( 532-) -  -   Zero
+  328 ILE  ( 533-) -  -   Zero
+  329 VAL  ( 534-) -  -   Zero
+  330 LEU  ( 535-) -  -   Zero
+  331 GLY  ( 536-) -  -   Zero
+  332 VAL  ( 537-) -  -   Zero
+  333 ILE  ( 538-) -  -   Zero
+  334 ILE  ( 539-) -  -   Zero
+  335 TYR  ( 540-) -  -   Zero
+  336 ARG  ( 541-) -  -   Zero
+  337 ILE  ( 542-) -  -   Zero
+  338 SER  ( 543-) -  -   Zero
+  339 MET  ( 544-) -  -   Zero
+  340 ALA  ( 545-) -  -   Zero
+  341 ALA  ( 546-) -  -   Zero
+  342 ALA  ( 547-) -  -   Zero
+  343 LEU  ( 548-) -  -   Zero
+  344 ALA  ( 549-) -  -   Zero
+  345 MET  ( 550-) -  -   Zero
+  346 ASN  ( 551-) -  -   Zero
+  347 SER  ( 552-) -  -   Zero
+  348 SER  ( 553-) -  -   Zero
+  349 PRO  ( 554-) -  -   Zero
+  350 SER  ( 555-) -  -   Zero
+  351 VAL  ( 556-) -  -   Zero
+  352 ARG  ( 557-) -  -   Zero
+  353 SER  ( 558-) -  -   Zero
+  354 ASN  ( 559-) -  -   Zero
+  355 ILE  ( 560-) -  -   Zero
+  356 ARG  ( 561-) -  -   Zero
+  357 VAL  ( 562-) -  -   Zero
+  358 THR  ( 563-) -  -   Zero
+  359 VAL  ( 564-) -  -   Zero
+  360 THR  ( 565-) -  -   Zero
+  361 ALA  ( 566-) -  -   Zero
+  362 THR  ( 567-) -  -   Zero
+  363 ALA  ( 568-) -  -   Zero
+  364 VAL  ( 569-) -  -   Zero
+  365 ILE  ( 570-) -  -   Zero
+  366 ILE  ( 571-) -  -   Zero
+  367 ASN  ( 572-) -  -   Zero
+  368 LEU  ( 573-) -  -   Zero
+  369 VAL  ( 574-) -  -   Zero
+  370 VAL  ( 575-) -  -   Zero
+  371 ILE  ( 576-) -  -   Zero
+  372 ILE  ( 577-) -  -   Zero
+  373 LEU  ( 578-) -  -   Zero
+  374 LEU  ( 579-) -  -   Zero
+  375 ASP  ( 580-) -  -   Zero
+  376 GLU  ( 581-) -  -   Zero
+  377 VAL  ( 582-) -  -   Zero
+  378 TYR  ( 583-) -  -   Zero
+  379 GLY  ( 584-) -  -   Zero
+  380 CYS  ( 585-) -  -   Zero
+  381 ILE  ( 586-) -  -   Zero
+  382 ALA  ( 587-) -  -   Zero
+  383 ARG  ( 588-) -  -   Zero
+  384 TRP  ( 589-) -  -   Zero
+  385 LEU  ( 590-) -  -   Zero
+  386 THR  ( 591-) -  -   Zero
+  387 LYS  ( 592-) -  -   Zero
+  388 ILE  ( 593-) -  -   Zero
+  389 GLU  ( 594-) -  -   Zero
+  390 VAL  ( 595-) -  -   Zero
+  391 PRO  ( 596-) -  -   Zero
+  392 LYS  ( 597-) -  -   Zero
+  393 THR  ( 598-) -  -   Zero
+  394 GLU  ( 599-) -  -   Zero
+  395 LYS  ( 600-) -  -   Zero
+  396 SER  ( 601-) -  -   Zero
+  397 PHE  ( 602-) -  -   Zero
+  398 GLU  ( 603-) -  -   Zero
+  399 GLU  ( 604-) -  -   Zero
+  400 ARG  ( 605-) -  -   Zero
+  401 LEU  ( 606-) -  -   Zero
+  402 ILE  ( 607-) -  -   Zero
+  403 PHE  ( 608-) -  -   Zero
+  404 LYS  ( 609-) -  -   Zero
+  405 ALA  ( 610-) -  -   Zero
+  406 PHE  ( 611-) -  -   Zero
+  407 LEU  ( 612-) -  -   Zero
+  408 LEU  ( 613-) -  -   Zero
+  409 LYS  ( 614-) -  -   Zero
+  410 PHE  ( 615-) -  -   Zero
+  411 VAL  ( 616-) -  -   Zero
+  412 ASN  ( 617-) -  -   Zero
+  413 SER  ( 618-) -  -   Zero
+  414 TYR  ( 619-) -  -   Zero
+  415 THR  ( 620-) -  -   Zero
+  416 PRO  ( 621-) -  -   Zero
+  417 ILE  ( 622-) -  -   Zero
+  418 PHE  ( 623-) -  -   Zero
+  419 TYR  ( 624-) -  -   Zero
+  420 VAL  ( 625-) -  -   Zero
+  421 ALA  ( 626-) -  -   Zero
+  422 PHE  ( 627-) -  -   Zero
+  423 PHE  ( 628-) -  -   Zero
+  424 LYS  ( 629-) -  -   Zero
+  425 GLY  ( 630-) -  -   Zero
+  426 ARG  ( 631-) -  -   Zero
+  427 PHE  ( 632-) -  -   Zero
+  428 VAL  ( 633-) -  -   Zero
+  429 GLY  ( 634-) -  -   Zero
+  430 ARG  ( 635-) -  -   Zero
+  431 PRO  ( 636-) -  -   Zero
+  432 GLY  ( 637-) -  -   Zero
+  433 ASP  ( 638-) -  -   Zero
+  434 TYR  ( 639-) -  -   Zero
+  435 VAL  ( 640-) -  -   Zero
+  436 TYR  ( 641-) -  -   Zero
+  437 ILE  ( 642-) -  -   Zero
+  438 PHE  ( 643-) -  -   Zero
+  439 ARG  ( 644-) -  -   Zero
+  440 SER  ( 645-) -  -   Zero
+  441 PHE  ( 646-) -  -   Zero
+  442 ARG  ( 647-) -  -   Zero
+  443 MET  ( 648-) -  -   Zero
+  444 GLU  ( 649-) -  -   Zero
+  445 GLU  ( 650-) -  -   Zero
+  446 CYS  ( 651-) -  -   Zero
+  447 ALA  ( 652-) -  -   Zero
+  448 PRO  ( 653-) -  -   Zero
+  449 GLY  ( 654-) -  -   Zero
+  450 GLY  ( 655-) -  -   Zero
+  451 CYS  ( 656-) -  -   Zero
+  452 LEU  ( 657-) -  -   Zero
+  453 MET  ( 658-) -  -   Zero
+  454 GLU  ( 659-) -  -   Zero
+  455 LEU  ( 660-) -  -   Zero
+  456 CYS  ( 661-) -  -   Zero
+  457 ILE  ( 662-) -  -   Zero
+  458 GLN  ( 663-) -  -   Zero
+  459 LEU  ( 664-) -  -   Zero
+  460 SER  ( 665-) -  -   Zero
+  461 ILE  ( 666-) -  -   Zero
+  462 ILE  ( 667-) -  -   Zero
+  463 MET  ( 668-) -  -   Zero
+  464 LEU  ( 669-) -  -   Zero
+  465 GLY  ( 670-) -  -   Zero
+  466 LYS  ( 671-) -  -   Zero
+  467 GLN  ( 672-) -  -   Zero
+  468 LEU  ( 673-) -  -   Zero
+  469 ILE  ( 674-) -  -   Zero
+  470 GLN  ( 675-) -  -   Zero
+  471 ASN  ( 676-) -  -   Zero
+  472 ASN  ( 677-) -  -   Zero
+  473 LEU  ( 678-) -  -   Zero
+  474 PHE  ( 679-) -  -   Zero
+  475 GLU  ( 680-) -  -   Zero
+  476 ILE  ( 681-) -  -   Zero
+  477 GLY  ( 682-) -  -   Zero
+  478 ILE  ( 683-) -  -   Zero
+  479 PRO  ( 684-) -  -   Zero
+  480 LYS  ( 708-) -  -   Zero
+  481 ARG  ( 709-) -  -   Zero
+  482 LYS  ( 710-) -  -   Zero
+  483 GLN  ( 711-) -  -   Zero
+  484 ARG  ( 712-) -  -   Zero
+  485 TYR  ( 713-) -  -   Zero
+  486 GLU  ( 714-) -  -   Zero
+  487 VAL  ( 715-) -  -   Zero
+  488 ASP  ( 716-) -  -   Zero
+  489 TYR  ( 717-) -  -   Zero
+  490 ASN  ( 718-) -  -   Zero
+  491 LEU  ( 719-) -  -   Zero
+  492 GLU  ( 720-) -  -   Zero
+  493 PRO  ( 721-) -  -   Zero
+  494 PHE  ( 722-) -  -   Zero
+  495 ALA  ( 723-) -  -   Zero
+  496 GLY  ( 724-) -  -   Zero
+  497 LEU  ( 725-) -  -   Zero
+  498 THR  ( 726-) -  -   Zero
+  499 PRO  ( 727-) -  -   Zero
+  500 GLU  ( 728-) -  -   Zero
+  501 TYR  ( 729-) -  -   Zero
+  502 MET  ( 730-) -  -   Zero
+  503 GLU  ( 731-) -  -   Zero
+  504 MET  ( 732-) -  -   Zero
+  505 ILE  ( 733-) -  -   Zero
+  506 ILE  ( 734-) -  -   Zero
+  507 GLN  ( 735-) -  -   Zero
+  508 PHE  ( 736-) -  -   Zero
+  509 GLY  ( 737-) -  -   Zero
+  510 PHE  ( 738-) -  -   Zero
+  511 VAL  ( 739-) -  -   Zero
+  512 THR  ( 740-) -  -   Zero
+  513 LEU  ( 741-) -  -   Zero
+  514 PHE  ( 742-) -  -   Zero
+  515 VAL  ( 743-) -  -   Zero
+  516 ALA  ( 744-) -  -   Zero
+  517 SER  ( 745-) -  -   Zero
+  518 PHE  ( 746-) -  -   Zero
+  519 PRO  ( 747-) -  -   Zero
+  520 LEU  ( 748-) -  -   Zero
+  521 ALA  ( 749-) -  -   Zero
+  522 PRO  ( 750-) -  -   Zero
+  523 LEU  ( 751-) -  -   Zero
+  524 PHE  ( 752-) -  -   Zero
+  525 ALA  ( 753-) -  -   Zero
+  526 LEU  ( 754-) -  -   Zero
+  527 LEU  ( 755-) -  -   Zero
+  528 ASN  ( 756-) -  -   Zero
+  529 ASN  ( 757-) -  -   Zero
+  530 ILE  ( 758-) -  -   Zero
+  531 ILE  ( 759-) -  -   Zero
+  532 GLU  ( 760-) -  -   Zero
+  533 ILE  ( 761-) -  -   Zero
+  534 ARG  ( 762-) -  -   Zero
+  535 LEU  ( 763-) -  -   Zero
+  536 ASP  ( 764-) -  -   Zero
+  537 ALA  ( 765-) -  -   Zero
+  538 LYS  ( 766-) -  -   Zero
+  539 LYS  ( 767-) -  -   Zero
+  540 PHE  ( 768-) -  -   Zero
+  541 VAL  ( 769-) -  -   Zero
+  542 THR  ( 770-) -  -   Zero
+  543 GLU  ( 771-) -  -   Zero
+  544 LEU  ( 772-) -  -   Zero
+  545 ARG  ( 773-) -  -   Zero
+  546 ARG  ( 774-) -  -   Zero
+  547 PRO  ( 775-) -  -   Zero
+  548 VAL  ( 776-) -  -   Zero
+  549 ALA  ( 777-) -  -   Zero
+  550 VAL  ( 778-) -  -   Zero
+  551 ARG  ( 779-) -  -   Zero
+  552 ALA  ( 780-) -  -   Zero
+  553 LYS  ( 781-) -  -   Zero
+  554 ASP  ( 782-) -  -   Zero
+  555 ILE  ( 783-) -  -   Zero
+  556 GLY  ( 784-) -  -   Zero
+  557 ILE  ( 785-) -  -   Zero
+  558 TRP  ( 786-) -  -   Zero
+  559 TYR  ( 787-) -  -   Zero
+  560 ASN  ( 788-) -  -   Zero
+  561 ILE  ( 789-) -  -   Zero
+  562 LEU  ( 790-) -  -   Zero
+  563 ARG  ( 791-) -  -   Zero
+  564 GLY  ( 792-) -  -   Zero
+  565 ILE  ( 793-) -  -   Zero
+  566 GLY  ( 794-) -  -   Zero
+  567 LYS  ( 795-) -  -   Zero
+  568 LEU  ( 796-) -  -   Zero
+  569 ALA  ( 797-) -  -   Zero
+  570 VAL  ( 798-) -  -   Zero
+  571 ILE  ( 799-) -  -   Zero
+  572 ILE  ( 800-) -  -   Zero
+  573 ASN  ( 801-) -  -   Zero
+  574 ALA  ( 802-) -  -   Zero
+  575 PHE  ( 803-) -  -   Zero
+  576 VAL  ( 804-) -  -   Zero
+  577 ILE  ( 805-) -  -   Zero
+  578 SER  ( 806-) -  -   Zero
+  579 PHE  ( 807-) -  -   Zero
+  580 THR  ( 808-) -  -   Zero
+  581 SER  ( 809-) -  -   Zero
+  582 ASP  ( 810-) -  -   Zero
+  583 PHE  ( 811-) -  -   Zero
+  584 ILE  ( 812-) -  -   Zero
+  585 PRO  ( 813-) -  -   Zero
+  586 ARG  ( 814-) -  -   Zero
+  587 LEU  ( 815-) -  -   Zero
+  588 VAL  ( 816-) -  -   Zero
+  589 TYR  ( 817-) -  -   Zero
+  590 LEU  ( 818-) -  -   Zero
+  591 TYR  ( 819-) -  -   Zero
+  592 MET  ( 820-) -  -   Zero
+  593 TYR  ( 821-) -  -   Zero
+  594 SER  ( 822-) -  -   Zero
+  595 LYS  ( 823-) -  -   Zero
+  596 ASN  ( 824-) -  -   Zero
+  597 GLY  ( 825-) -  -   Zero
+  598 THR  ( 826-) -  -   Zero
+  599 MET  ( 827-) -  -   Zero
+  600 HIS  ( 828-) -  -   Zero
+  601 GLY  ( 829-) -  -   Zero
+  602 PHE  ( 830-) -  -   Zero
+  603 VAL  ( 831-) -  -   Zero
+  604 ASN  ( 832-) -  -   Zero
+  605 HIS  ( 833-) -  -   Zero
+  606 THR  ( 834-) -  -   Zero
+  607 LEU  ( 835-) -  -   Zero
+  608 SER  ( 836-) -  -   Zero
+  609 SER  ( 837-) -  -   Zero
+  610 PHE  ( 838-) -  -   Zero
+  611 ASN  ( 839-) -  -   Zero
+  612 VAL  ( 840-) -  -   Zero
+  613 SER  ( 841-) -  -   Zero
+  614 ASP  ( 842-) -  -   Zero
+  615 PHE  ( 843-) -  -   Zero
+  616 GLN  ( 844-) -  -   Zero
+  617 ASN  ( 845-) -  -   Zero
+  618 GLY  ( 846-) -  -   Zero
+  619 THR  ( 847-) -  -   Zero
+  620 ALA  ( 848-) -  -   Zero
+  621 PRO  ( 849-) -  -   Zero
+  622 ASN  ( 850-) -  -   Zero
+  623 ASP  ( 851-) -  -   Zero
+  624 PRO  ( 852-) -  -   Zero
+  625 LEU  ( 853-) -  -   Zero
+  626 ASP  ( 854-) -  -   Zero
+  627 LEU  ( 855-) -  -   Zero
+  628 GLY  ( 856-) -  -   Zero
+  629 TYR  ( 857-) -  -   Zero
+  630 GLU  ( 858-) -  -   Zero
+  631 VAL  ( 859-) -  -   Zero
+  632 GLN  ( 860-) -  -   Zero
+  633 ILE  ( 861-) -  -   Zero
+  634 CYS  ( 862-) -  -   Zero
+  635 ARG  ( 863-) -  -   Zero
+  636 TYR  ( 864-) -  -   Zero
+  637 LYS  ( 865-) -  -   Zero
+  638 ASP  ( 866-) -  -   Zero
+  639 TYR  ( 867-) -  -   Zero
+  640 ARG  ( 868-) -  -   Zero
+  641 GLU  ( 869-) -  -   Zero
+  642 PRO  ( 870-) -  -   Zero
+  643 PRO  ( 871-) -  -   Zero
+  644 TRP  ( 872-) -  -   Zero
+  645 SER  ( 873-) -  -   Zero
+  646 GLU  ( 874-) -  -   Zero
+  647 ASN  ( 875-) -  -   Zero
+  648 LYS  ( 876-) -  -   Zero
+  649 TYR  ( 877-) -  -   Zero
+  650 ASP  ( 878-) -  -   Zero
+  651 ILE  ( 879-) -  -   Zero
+  652 SER  ( 880-) -  -   Zero
+  653 LYS  ( 881-) -  -   Zero
+  654 ASP  ( 882-) -  -   Zero
+  655 PHE  ( 883-) -  -   Zero
+  656 TRP  ( 884-) -  -   Zero
+  657 ALA  ( 885-) -  -   Zero
+  658 VAL  ( 886-) -  -   Zero
+  659 LEU  ( 887-) -  -   Zero
+  660 ALA  ( 888-) -  -   Zero
+  661 ALA  ( 889-) -  -   Zero
+  662 ARG  ( 890-) -  -   Zero
+  663 LEU  ( 891-) -  -   Zero
+  664 ALA  ( 892-) -  -   Zero
+  665 PHE  ( 893-) -  -   Zero
+  666 VAL  ( 894-) -  -   Zero
+  667 ILE  ( 895-) -  -   Zero
+  668 VAL  ( 896-) -  -   Zero
+  669 PHE  ( 897-) -  -   Zero
+  670 GLN  ( 898-) -  -   Zero
+  671 ASN  ( 899-) -  -   Zero
+  672 LEU  ( 900-) -  -   Zero
+  673 VAL  ( 901-) -  -   Zero
+  674 MET  ( 902-) -  -   Zero
+  675 PHE  ( 903-) -  -   Zero
+  676 MET  ( 904-) -  -   Zero
+  677 SER  ( 905-) -  -   Zero
+  678 ASP  ( 906-) -  -   Zero
+  679 PHE  ( 907-) -  -   Zero
+  680 VAL  ( 908-) -  -   Zero
+  681 ASP  ( 909-) -  -   Zero
+  682 TRP  ( 910-) -  -   Zero
+  683 VAL  ( 911-) -  -   Zero
+  684 ILE  ( 912-) -  -   Zero
+  685 PRO  ( 913-) -  -   Zero
+  686 ASP  ( 914-) -  -   Zero
+  687 ILE  ( 915-) -  -   Zero
+  688 PRO  ( 916-) -  -   Zero
+  689 LYS  ( 917-) -  -   Zero
+  690 ASP  ( 918-) -  -   Zero
+  691 ILE  ( 919-) -  -   Zero
+  692 SER  ( 920-) -  -   Zero
+  693 GLN  ( 921-) -  -   Zero
+  694 GLN  ( 922-) -  -   Zero
+  695 ILE  ( 923-) -  -   Zero
+  696 HIS  ( 924-) -  -   Zero
+  697 LYS  ( 925-) -  -   Zero
+  698 GLU  ( 926-) -  -   Zero
+  699 LYS  ( 927-) -  -   Zero
+  700 VAL  ( 928-) -  -   Zero
+  701 LEU  ( 929-) -  -   Zero
+  702 MET  ( 930-) -  -   Zero
+  703 VAL  ( 931-) -  -   Zero
+  704 GLU  ( 932-) -  -   Zero
+  705 LEU  ( 933-) -  -   Zero
+  706 PHE  ( 934-) -  -   Zero
+  707 MET  ( 935-) -  -   Zero
+  708 ARG  ( 936-) -  -   Zero
+ 
+# 21 # Note: Capping of (pseudo) C-termini OK
+No extra capping groups were found on pseudo C-termini. This can imply
+that no pseudo C-termini are present.
+ 
+# 22 # Note: Introduction to the nomenclature section.
+Nomenclature problems seem, at first, rather unimportant. After all who
+cares if we call the delta atoms in leucine delta2 and delta1 rather than
+the other way around. Chemically speaking that is correct. But structures
+have not been solved and deposited just for chemists to look at them. Most
+times a structure is used, it is by software in a bioinformatics lab. And
+if they compare structures in which the one used C delta1 and delta2 and the
+other uses C delta2 and delta1, then that comparison will fail. Also, we
+recalculate all structures every so many years to make sure that everybody
+always can get access to the best coordinates that can be obtained from
+the (your?) experimental data. These recalculations will be troublesome if
+there are nomenclature problems.
+ 
+Several nomenclature problems actually are worse than that. At the
+WHAT CHECK website [REF] you can get an overview of the importance of all
+nomenclature problems that we list.
+ 
+# 23 # Note: Valine nomenclature OK
+No errors were detected in valine nomenclature.
+ 
+# 24 # Note: Threonine nomenclature OK
+No errors were detected in threonine nomenclature.
+ 
+# 25 # Note: Isoleucine nomenclature OK
+No errors were detected in isoleucine nomenclature.
+ 
+# 26 # Note: Leucine nomenclature OK
+No errors were detected in leucine nomenclature.
+ 
+# 27 # Warning: Arginine nomenclature problem
+The arginine residues listed in the table below have their NH1 and NH2
+swapped.
+ 
+  140 ARG  ( 298-) -  -
+  271 ARG  ( 429-) -  -
+  356 ARG  ( 561-) -  -
+  545 ARG  ( 773-) -  -
+ 
+# 28 # Warning: Tyrosine convention problem
+The tyrosine residues listed in the table below have their chi-2 not between
+-90.0 and 90.0
+ 
+  106 TYR  ( 264-) -  -
+ 
+# 29 # Note: Phenylalanine torsion conventions OK
+No errors were detected in phenylalanine torsion angle conventions.
+ 
+# 30 # Note: Aspartic acid torsion conventions OK
+No errors were detected in aspartic acid torsion angle conventions.
+ 
+# 31 # Note: Glutamic acid torsion conventions OK
+No errors were detected in glutamic acid torsion angle conventions.
+ 
+# 32 # Note: Phosphate group names OK in DNA/RNA
+No errors were detected in nucleic acid phosphate group naming conventions
+(or this structure contains no nucleic acids).
+ 
+# 33 # Note: Heavy atom naming OK
+No errors were detected in the atom names for non-hydrogen atoms. Please
+be aware that the PDB wants us to deliberately make some nomenclature errors;
+especially in non-canonical amino acids.
+ 
+# 34 # Warning: Unusual bond lengths
+The bond lengths listed in the table below were found to deviate more than 4
+sigma from standard bond lengths (both standard values and sigmas for amino
+acid residues have been taken from Engh and Huber [REF], for DNA they were
+taken from Parkinson et al [REF]). In the table below for each unusual bond
+the bond length and the number of standard deviations it differs from the
+normal value is given.
+ 
+Atom names starting with "-" belong to the previous residue in the chain. If
+the second atom name is "-SG*", the disulphide bridge has a deviating length.
+ 
+    3 PRO  ( 161-) -  -    CD   N     2.27   56.8
+    8 CYS  ( 166-) -  -    CB   SG    1.42  -11.7
+  101 CYS  ( 259-) -  -    CB   SG    1.42  -11.7
+  109 GLY  ( 267-) -  -    N   -C     1.41    4.0
+  309 PRO  ( 514-) -  -    CD   N     3.12  117.3
+  311 TYR  ( 516-) -  -    N   -C     1.41    4.1
+ 
+# 35 # Warning: Low bond length variability
+Bond lengths were found to deviate less than normal from the mean Engh and
+Huber [REF] and/or Parkinson et al [REF] standard bond lengths. The RMS
+Z-score given below is expected to be near 1.0 for a normally restrained
+data set. The fact that it is lower than 0.667 in this structure might
+indicate that too-strong restraints have been used in the refinement. This
+can only be a problem  for high resolution X-ray structures.
+ 
+ RMS Z-score for bond lengths: 0.400
+ RMS-deviation in bond distances: 0.009
+ 
+# 36 # Warning: Unusual bond angles
+The bond angles listed in the table below were found to deviate more than 4
+sigma from standard bond angles (both standard values and sigma for protein
+residues have been taken from Engh and Huber [REF], for DNA/RNA from
+Parkinson et al [REF]). In the table below for each strange angle the bond
+angle and the number of standard deviations it differs from the standard
+values is given. Please note that disulphide bridges are neglected. Atoms
+starting with "-" belong to the previous residue in the sequence.
+ 
+    1 HIS  ( 159-) -  -    CG   ND1  CE1 110.67    5.1
+    3 PRO  ( 161-) -  -    N    CA   CB  110.82    7.1
+    3 PRO  ( 161-) -  -    CA   CB   CG  113.52    4.7
+    3 PRO  ( 161-) -  -    CG   CD   N    91.84   -7.6
+    3 PRO  ( 161-) -  -    CD   N    CA   99.89   -8.6
+    5 ASN  ( 163-) -  -    CA   CB   CG  107.99   -4.6
+    6 VAL  ( 164-) -  -   -O   -C    N   101.03  -13.7
+    6 VAL  ( 164-) -  -    N    CA   CB  142.09   18.6
+    6 VAL  ( 164-) -  -    C    CA   CB   84.09  -13.7
+    7 LEU  ( 165-) -  -    N    CA   CB  121.27    6.3
+    7 LEU  ( 165-) -  -    C    CA   CB   99.36   -5.7
+    8 CYS  ( 166-) -  -    N    CA   CB  126.30    9.3
+    8 CYS  ( 166-) -  -    C    CA   CB   95.52   -7.7
+    9 ARG  ( 167-) -  -    N    CA   CB  122.30    6.9
+    9 ARG  ( 167-) -  -    C    CA   CB   99.74   -5.5
+    9 ARG  ( 167-) -  -    NE   CZ   NH1 107.75   -6.4
+    9 ARG  ( 167-) -  -    NE   CZ   NH2 107.78   -6.4
+    9 ARG  ( 167-) -  -    NH1  CZ   NH2 144.47   13.8
+   10 GLU  ( 168-) -  -   -C    N    CA  133.08    6.3
+   27 ASN  ( 185-) -  -    CA   CB   CG  108.00   -4.6
+   99 THR  ( 257-) -  -   -O   -C    N    11.77  -69.5
+   99 THR  ( 257-) -  -    N    CA   CB  156.32   27.0
+   99 THR  ( 257-) -  -    C    CA   CB   79.04  -16.3
+  100 THR  ( 258-) -  -    N    CA   CB  156.60   27.1
+  100 THR  ( 258-) -  -    C    CA   CB   80.97  -15.3
+  101 CYS  ( 259-) -  -    N    CA   CB  126.24    9.3
+  101 CYS  ( 259-) -  -    C    CA   CB   95.41   -7.7
+  102 THR  ( 260-) -  -    N    CA   CB  155.89   26.7
+  102 THR  ( 260-) -  -    C    CA   CB   77.58  -17.1
+  103 LYS  ( 261-) -  -    N    CA   CB  120.30    5.8
+  103 LYS  ( 261-) -  -    C    CA   CB   98.42   -6.1
+  105 LYS  ( 263-) -  -    N    CA   CB  121.24    6.3
+  105 LYS  ( 263-) -  -    C    CA   CB   99.73   -5.5
+  106 TYR  ( 264-) -  -    N    CA   CB  125.07    8.6
+  106 TYR  ( 264-) -  -    C    CA   CB   96.34   -7.2
+  107 SER  ( 265-) -  -    N    CA   CB  126.80    9.6
+  107 SER  ( 265-) -  -    C    CA   CB   94.91   -8.0
+  108 MET  ( 266-) -  -    N    CA   CB  125.27    8.7
+  108 MET  ( 266-) -  -    C    CA   CB   96.37   -7.2
+  131 ASN  ( 289-) -  -    CA   CB   CG  107.98   -4.6
+  149 ARG  ( 307-) -  -    NE   CZ   NH1 107.76   -6.4
+  149 ARG  ( 307-) -  -    NE   CZ   NH2 107.70   -6.5
+  149 ARG  ( 307-) -  -    NH1  CZ   NH2 144.54   13.8
+  216 HIS  ( 374-) -  -    CG   ND1  CE1 110.63    5.0
+  305 ARG  ( 510-) -  -   -O   -C    N    38.90  -52.6
+  305 ARG  ( 510-) -  -    N    CA   CB  121.23    6.3
+  305 ARG  ( 510-) -  -    C    CA   CB   98.25   -6.2
+  305 ARG  ( 510-) -  -    NE   CZ   NH1 107.78   -6.4
+  305 ARG  ( 510-) -  -    NE   CZ   NH2 107.65   -6.5
+  305 ARG  ( 510-) -  -    NH1  CZ   NH2 144.58   13.8
+  306 ASP  ( 511-) -  -    C    CA   CB  101.71   -4.4
+  306 ASP  ( 511-) -  -    CA   CB   CG  107.98   -4.6
+  307 ARG  ( 512-) -  -    N    CA   CB  121.31    6.4
+  307 ARG  ( 512-) -  -    C    CA   CB   98.32   -6.2
+  307 ARG  ( 512-) -  -    NE   CZ   NH1 107.75   -6.4
+  307 ARG  ( 512-) -  -    NE   CZ   NH2 107.80   -6.4
+  307 ARG  ( 512-) -  -    NH1  CZ   NH2 144.45   13.7
+  308 PHE  ( 513-) -  -    N    CA   CB  123.12    7.4
+  308 PHE  ( 513-) -  -    C    CA   CB  100.61   -5.0
+  308 PHE  ( 513-) -  -    CA   CB   CG  107.54   -6.3
+  309 PRO  ( 514-) -  -   -C    N    CD  169.94   11.0
+  309 PRO  ( 514-) -  -    N    CA   C    98.15   -5.5
+  309 PRO  ( 514-) -  -    N    CA   CB  148.95   41.8
+  309 PRO  ( 514-) -  -    C    CA   CB   81.37  -15.1
+  309 PRO  ( 514-) -  -    CA   CB   CG  113.51    4.7
+  309 PRO  ( 514-) -  -    CG   CD   N    90.86   -8.2
+  309 PRO  ( 514-) -  -    CD   N    CA   65.85  -33.0
+  311 TYR  ( 516-) -  -   -C    N    CA  111.00   -5.9
+  647 ASN  ( 875-) -  -    CA   CB   CG  107.96   -4.6
+ 
+# 37 # Note: Normal bond angle variability
+Bond angles were found to deviate normally from the mean standard bond angles
+(normal values for protein residues were taken from Engh and Huber [REF], for
+DNA/RNA from Parkinson et al [REF]). The RMS Z-score given below is expected
+to be near 1.0 for a normally restrained data set, and this is indeed
+observed for very high resolution X-ray structures.
+ 
+ RMS Z-score for bond angles: 0.842
+ RMS-deviation in bond angles: 1.659
+ 
+# 38 # Error: Nomenclature error(s)
+Checking for a hand-check. WHAT CHECK has over the course of this session
+already corrected the handedness of atoms in several residues. These were
+administrative corrections. These residues are listed here.
+ 
+  140 ARG  ( 298-) -  -
+  271 ARG  ( 429-) -  -
+  356 ARG  ( 561-) -  -
+  545 ARG  ( 773-) -  -
+ 
+# 39 # Warning: Chirality deviations detected
+The atoms listed in the table below have an improper dihedral value that is
+deviating from expected values. As the improper dihedral values are all
+getting very close to ideal values in recent X-ray structures, and as we
+actually do not know how big the spread around these values should be, this
+check only warns for 6 sigma deviations.
+ 
+Improper dihedrals are a measure of the chirality/planarity of the structure
+at a specific atom. Values around -35 or +35 are expected for chiral atoms,
+and values around 0 for planar atoms. Planar side chains are left out of the
+calculations, these are better handled by the planarity checks.
+ 
+Three numbers are given for each atom in the table. The first is the Z-score
+for the improper dihedral. The second number is the measured improper
+dihedral. The third number is the expected value for this atom type. A final
+column contains an extra warning if the chirality for an atom is opposite
+to the expected value.
+ 
+Please also see the previous table that lists a series of administrative
+chirality problems that were corrected automatically upon reading-in the
+PDB file.
+ 
+    5 ASN  ( 163-) -  -    C    -21.4   -33.31     0.34
+   98 ARG  ( 256-) -  -    C    -74.8  -113.59     0.18
+   99 THR  ( 257-) -  -    CA   -10.1    18.19    33.78
+  100 THR  ( 258-) -  -    CA   -10.3    17.80    33.78
+  102 THR  ( 260-) -  -    CA    -9.8    18.54    33.78
+  304 TRP  ( 509-) -  -    C     51.0    78.28     0.33
+  309 PRO  ( 514-) -  -    CA   -12.6    23.54    38.10
+The average deviation= 1.016
+ 
+# 40 # Warning: High improper dihedral angle deviations
+The RMS Z-score for the improper dihedrals in the structure is high. For
+well refined structures this number is expected to be near 1.0. The fact
+that it is higher than 2.0 worries us a bit. However, we determined the
+improper normal distribution from 500 high-resolution X-ray structures,
+rather than from CSD data, so we cannot be 100 percent certain about these
+numbers.
+ 
+ Improper dihedral RMS Z-score : 2.305
+ 
+# 41 # Error: Tau angle problems
+The side chains of the residues listed in the table below contain a tau
+angle (N-C-alpha-C) that was found to deviate from te expected value by
+more than 4.0 times the expected standard deviation. The number in the
+table is the number of standard deviations this value deviates from
+the expected value.
+ 
+  309 PRO  ( 514-) -  -   5.76
+  295 HIS  ( 453-) -  -   4.02
+ 
+# 42 # Note: Normal tau angle deviations
+The RMS Z-score for the tau angles (N-C-alpha-C) in the structure falls
+within the normal range that we guess to be 0.5 - 1.5. Be aware, we
+determined the tau normal distributions from 500 high-resolution X-ray
+structures, rather than from CSD data, so we cannot be 100 percent certain
+about these numbers.
+ 
+ Tau angle RMS Z-score : 0.997
+ 
+# 43 # Note: Side chain planarity OK
+All of the side chains of residues that have an intact planar group are
+planar within expected RMS deviations.
+ 
+# 44 # Note: Atoms connected to aromatic rings OK
+All of the atoms that are connected to planar aromatic rings in side chains
+of amino-acid residues are in the plane within expected RMS deviations.
+Since there is no DNA and no protein with hydrogens, no uncalibrated
+planarity check was performed.
+ 
+# 45 # Warning: Ramachandran Z-score low
+The score expressing how well the backbone conformations of all residues
+correspond to the known allowed areas in the Ramachandran plot is a bit low.
+ 
+ Ramachandran Z-score : -3.829
+ 
+# 46 # Note: Ramachandran check
+The list contains per-residue Z-scores describing how well each residue
+fits into the allowed areas of the Ramachandran plot will not be printed
+because WHAT CHECK found no reason to cry.
+ 
+# 47 # Warning: Torsion angle evaluation shows unusual residues
+The residues listed in the table below contain bad or abnormal
+torsion angles.
+ 
+These scores give an impression of how `normal' the torsion angles in
+protein residues are. All torsion angles except omega are used for
+calculating a `normality' score. Average values and standard deviations were
+obtained from the residues in the WHAT CHECK database. These are used to
+calculate Z-scores. A residue with a Z-score of below -2.0 is poor, and a
+score of less than -3.0 is worrying. For such residues more than one torsion
+angle is in a highly unlikely position.
+ 
+  223 LEU  ( 381-) -  -   -2.5
+  356 ARG  ( 561-) -  -   -2.5
+  201 THR  ( 359-) -  -   -2.4
+  497 LEU  ( 725-) -  -   -2.3
+  158 PRO  ( 316-) -  -   -2.3
+  282 LEU  ( 440-) -  -   -2.2
+  633 ILE  ( 861-) -  -   -2.2
+   56 PRO  ( 214-) -  -   -2.2
+   43 ILE  ( 201-) -  -   -2.2
+  515 VAL  ( 743-) -  -   -2.2
+   66 PHE  ( 224-) -  -   -2.2
+  687 ILE  ( 915-) -  -   -2.2
+  437 ILE  ( 642-) -  -   -2.1
+  478 ILE  ( 683-) -  -   -2.1
+  572 ILE  ( 800-) -  -   -2.1
+  289 GLU  ( 447-) -  -   -2.1
+  639 TYR  ( 867-) -  -   -2.1
+  598 THR  ( 826-) -  -   -2.1
+  491 LEU  ( 719-) -  -   -2.0
+  125 LEU  ( 283-) -  -   -2.0
+  609 SER  ( 837-) -  -   -2.0
+  705 LEU  ( 933-) -  -   -2.0
+  695 ILE  ( 923-) -  -   -2.0
+   67 SER  ( 225-) -  -   -2.0
+ 
+# 48 # Warning: Backbone evaluation reveals unusual conformations
+The residues listed in the table below have abnormal backbone torsion
+angles.
+ 
+Residues with `forbidden' phi-psi combinations are listed, as well as
+residues with unusual omega angles (deviating by more than 3 sigma from the
+normal value). Please note that it is normal if about 5 percent of the
+residues is listed here as having unusual phi-psi combinations.
+ 
+    2 ALA  ( 160-) -  - Omega to (next) Pro poor
+    7 LEU  ( 165-) -  - Poor phi/psi
+   10 GLU  ( 168-) -  - Poor phi/psi
+   18 MET  ( 176-) -  - Omega to (next) Pro poor
+   33 LEU  ( 191-) -  - Poor phi/psi, omega poor
+   45 ASP  ( 203-) -  - Omega to (next) Pro poor
+   48 GLN  ( 206-) -  - Omega to (next) Pro poor
+   55 ARG  ( 213-) -  - Omega to (next) Pro poor
+   61 ARG  ( 219-) -  - Next PRO hinders
+   64 TYR  ( 222-) -  - Omega to (next) Pro poor
+   66 PHE  ( 224-) -  - Poor phi/psi
+   67 SER  ( 225-) -  - Poor phi/psi
+   75 ASP  ( 233-) -  - omega poor
+   76 LEU  ( 234-) -  - Poor phi/psi
+   78 ASP  ( 236-) -  - Poor phi/psi
+   80 ASP  ( 238-) -  - Poor phi/psi
+  101 CYS  ( 259-) -  - Poor phi/psi
+  109 GLY  ( 267-) -  - Poor phi/psi
+  117 GLY  ( 275-) -  - Poor phi/psi
+  123 TYR  ( 281-) -  - Omega to (next) Pro poor
+  131 ASN  ( 289-) -  - Poor phi/psi
+  134 ASN  ( 292-) -  - Poor phi/psi
+  157 GLN  ( 315-) -  - Omega to (next) Pro poor
+  158 PRO  ( 316-) -  - omega poor
+  185 ILE  ( 343-) -  - Omega to (next) Pro poor
+  206 ILE  ( 364-) -  - Omega to (next) Pro poor
+  214 GLN  ( 372-) -  - Poor phi/psi
+  221 CYS  ( 379-) -  - Omega to (next) Pro poor
+  223 LEU  ( 381-) -  - Poor phi/psi
+  226 LYS  ( 384-) -  - omega poor
+  229 SER  ( 387-) -  - Next PRO hinders
+  248 ASN  ( 406-) -  - Omega to (next) Pro poor
+  277 ASN  ( 435-) -  - omega poor
+  289 GLU  ( 447-) -  - Poor phi/psi
+  294 ASP  ( 452-) -  - omega poor
+  295 HIS  ( 453-) -  - Omega to (next) Pro poor
+  306 ASP  ( 511-) -  - Poor phi/psi
+  308 PHE  ( 513-) -  - Omega to (next) Pro poor
+  310 ALA  ( 515-) -  - Next PRO hinders
+  311 TYR  ( 516-) -  - Poor phi/psi
+  348 SER  ( 553-) -  - Omega to (next) Pro poor
+  352 ARG  ( 557-) -  - Poor phi/psi
+  354 ASN  ( 559-) -  - Poor phi/psi
+  390 VAL  ( 595-) -  - Omega to (next) Pro poor
+  391 PRO  ( 596-) -  - Next PRO hinders
+  393 THR  ( 598-) -  - Next PRO hinders
+  415 THR  ( 620-) -  - Omega to (next) Pro poor
+  422 PHE  ( 627-) -  - omega poor
+  426 ARG  ( 631-) -  - omega poor
+  430 ARG  ( 635-) -  - Omega to (next) Pro poor
+  438 PHE  ( 643-) -  - Poor phi/psi
+  439 ARG  ( 644-) -  - Poor phi/psi
+  440 SER  ( 645-) -  - Poor phi/psi
+  443 MET  ( 648-) -  - Poor phi/psi
+  444 GLU  ( 649-) -  - Poor phi/psi
+  447 ALA  ( 652-) -  - Omega to (next) Pro poor
+  478 ILE  ( 683-) -  - Omega to (next) Pro poor
+  492 GLU  ( 720-) -  - Omega to (next) Pro poor
+  498 THR  ( 726-) -  - Omega to (next) Pro poor
+  511 VAL  ( 739-) -  - omega poor
+  518 PHE  ( 746-) -  - Omega to (next) Pro poor
+  519 PRO  ( 747-) -  - Next PRO hinders
+  520 LEU  ( 748-) -  - Poor phi/psi
+  521 ALA  ( 749-) -  - Omega to (next) Pro poor
+  546 ARG  ( 774-) -  - Omega to (next) Pro poor
+  547 PRO  ( 775-) -  - Next PRO hinders
+  549 ALA  ( 777-) -  - Poor phi/psi
+  580 THR  ( 808-) -  - omega poor
+  584 ILE  ( 812-) -  - Omega to (next) Pro poor
+  595 LYS  ( 823-) -  - Poor phi/psi
+  596 ASN  ( 824-) -  - Next PRO hinders
+  598 THR  ( 826-) -  - Next PRO hinders
+  607 LEU  ( 835-) -  - omega poor
+  608 SER  ( 836-) -  - omega poor
+  609 SER  ( 837-) -  - Poor phi/psi
+  620 ALA  ( 848-) -  - Omega to (next) Pro poor
+  623 ASP  ( 851-) -  - Omega to (next) Pro poor
+  626 ASP  ( 854-) -  - Poor phi/psi
+  630 GLU  ( 858-) -  - Next PRO hinders
+  641 GLU  ( 869-) -  - Omega to (next) Pro poor
+  642 PRO  ( 870-) -  - Omega to (next) Pro poor
+  649 TYR  ( 877-) -  - Poor phi/psi
+  650 ASP  ( 878-) -  - Next PRO hinders
+  684 ILE  ( 912-) -  - Omega to (next) Pro poor
+  687 ILE  ( 915-) -  - Omega to (next) Pro poor
+ 
+# 49 # Error: Chi-1/chi-2 rotamer problems
+List of residues with a poor chi-1/chi-2 combination. Be aware that for this
+validation option the individual scores are far less important than the
+overall score that is given below the table.
+ 
+   96 LEU  ( 254-) -  -    -1.42
+  114 LEU  ( 272-) -  -    -1.42
+  177 LEU  ( 335-) -  -    -1.43
+  196 LEU  ( 354-) -  -    -1.42
+  260 LEU  ( 418-) -  -    -1.43
+  315 LEU  ( 520-) -  -    -1.43
+  368 LEU  ( 573-) -  -    -1.42
+  401 LEU  ( 606-) -  -    -1.43
+  407 LEU  ( 612-) -  -    -1.42
+  408 LEU  ( 613-) -  -    -1.42
+  452 LEU  ( 657-) -  -    -1.43
+  459 LEU  ( 664-) -  -    -1.43
+  473 LEU  ( 678-) -  -    -1.43
+  526 LEU  ( 754-) -  -    -1.41
+  535 LEU  ( 763-) -  -    -1.43
+  590 LEU  ( 818-) -  -    -1.43
+  672 LEU  ( 900-) -  -    -1.43
+  705 LEU  ( 933-) -  -    -1.43
+   16 LEU  ( 174-) -  -    -1.32
+   32 LEU  ( 190-) -  -    -1.31
+   73 LEU  ( 231-) -  -    -1.34
+  125 LEU  ( 283-) -  -    -1.34
+  223 LEU  ( 381-) -  -    -1.32
+  282 LEU  ( 440-) -  -    -1.33
+  343 LEU  ( 548-) -  -    -1.33
+  491 LEU  ( 719-) -  -    -1.34
+  497 LEU  ( 725-) -  -    -1.34
+  513 LEU  ( 741-) -  -    -1.34
+  520 LEU  ( 748-) -  -    -1.34
+  607 LEU  ( 835-) -  -    -1.33
+  625 LEU  ( 853-) -  -    -1.34
+  627 LEU  ( 855-) -  -    -1.34
+   18 MET  ( 176-) -  -    -1.21
+   22 LYS  ( 180-) -  -    -1.23
+   26 ILE  ( 184-) -  -    -1.24
+   36 ILE  ( 194-) -  -    -1.26
+   50 LYS  ( 208-) -  -    -1.20
+   86 LYS  ( 244-) -  -    -1.22
+  129 ASP  ( 287-) -  -    -1.23
+  138 ASN  ( 296-) -  -    -1.22
+  172 LEU  ( 330-) -  -    -1.23
+  184 LEU  ( 342-) -  -    -1.22
+  206 ILE  ( 364-) -  -    -1.26
+  245 LEU  ( 403-) -  -    -1.27
+  271 ARG  ( 429-) -  -    -1.20
+  336 ARG  ( 541-) -  -    -1.21
+  345 MET  ( 550-) -  -    -1.24
+  355 ILE  ( 560-) -  -    -1.26
+  395 LYS  ( 600-) -  -    -1.21
+  478 ILE  ( 683-) -  -    -1.25
+  568 LEU  ( 796-) -  -    -1.21
+  633 ILE  ( 861-) -  -    -1.21
+  687 ILE  ( 915-) -  -    -1.21
+  702 MET  ( 930-) -  -    -1.20
+   12 GLU  ( 170-) -  -    -1.17
+   43 ILE  ( 201-) -  -    -1.14
+   62 LEU  ( 220-) -  -    -1.11
+  127 ASP  ( 285-) -  -    -1.12
+  130 TYR  ( 288-) -  -    -1.11
+  143 LEU  ( 301-) -  -    -1.11
+  145 GLU  ( 303-) -  -    -1.11
+  163 ARG  ( 321-) -  -    -1.18
+  275 ARG  ( 433-) -  -    -1.12
+  294 ASP  ( 452-) -  -    -1.12
+  297 ARG  ( 455-) -  -    -1.18
+  437 ILE  ( 642-) -  -    -1.18
+  475 GLU  ( 680-) -  -    -1.11
+  485 TYR  ( 713-) -  -    -1.12
+  562 LEU  ( 790-) -  -    -1.10
+  582 ASP  ( 810-) -  -    -1.16
+  704 GLU  ( 932-) -  -    -1.18
+   28 GLU  ( 186-) -  -    -1.09
+   45 ASP  ( 203-) -  -    -1.07
+   47 ILE  ( 205-) -  -    -1.03
+   71 GLN  ( 229-) -  -    -1.08
+   83 PHE  ( 241-) -  -    -1.06
+   91 ILE  ( 249-) -  -    -1.05
+  110 ILE  ( 268-) -  -    -1.03
+  113 LEU  ( 271-) -  -    -1.06
+  119 TYR  ( 277-) -  -    -1.00
+  139 ASP  ( 297-) -  -    -1.08
+  155 LYS  ( 313-) -  -    -1.02
+  156 TYR  ( 314-) -  -    -1.09
+  157 GLN  ( 315-) -  -    -1.01
+  220 MET  ( 378-) -  -    -1.06
+  246 PHE  ( 404-) -  -    -1.01
+  264 THR  ( 422-) -  -    -1.05
+  273 GLN  ( 431-) -  -    -1.09
+  326 PHE  ( 531-) -  -    -1.04
+  356 ARG  ( 561-) -  -    -1.01
+  371 ILE  ( 576-) -  -    -1.05
+  378 TYR  ( 583-) -  -    -1.05
+  415 THR  ( 620-) -  -    -1.05
+  418 PHE  ( 623-) -  -    -1.00
+  476 ILE  ( 681-) -  -    -1.05
+  480 LYS  ( 708-) -  -    -1.02
+  481 ARG  ( 709-) -  -    -1.01
+  500 GLU  ( 728-) -  -    -1.06
+  515 VAL  ( 743-) -  -    -1.04
+  533 ILE  ( 761-) -  -    -1.03
+  534 ARG  ( 762-) -  -    -1.02
+  548 VAL  ( 776-) -  -    -1.01
+  567 LYS  ( 795-) -  -    -1.01
+  572 ILE  ( 800-) -  -    -1.02
+  653 LYS  ( 881-) -  -    -1.08
+  681 ASP  ( 909-) -  -    -1.06
+  690 ASP  ( 918-) -  -    -1.07
+  693 GLN  ( 921-) -  -    -1.07
+  698 GLU  ( 926-) -  -    -1.01
+   10 GLU  ( 168-) -  -    -0.92
+   33 LEU  ( 191-) -  -    -0.95
+   57 GLN  ( 215-) -  -    -0.95
+  116 ASN  ( 274-) -  -    -0.91
+  118 VAL  ( 276-) -  -    -0.96
+  134 ASN  ( 292-) -  -    -0.99
+  150 TYR  ( 308-) -  -    -0.97
+  159 ILE  ( 317-) -  -    -0.96
+  162 VAL  ( 320-) -  -    -0.95
+  185 ILE  ( 343-) -  -    -0.96
+  237 CYS  ( 395-) -  -    -0.93
+  251 THR  ( 409-) -  -    -0.98
+  281 ASP  ( 439-) -  -    -0.99
+  289 GLU  ( 447-) -  -    -0.99
+  300 TYR  ( 458-) -  -    -0.92
+  316 VAL  ( 521-) -  -    -0.91
+  329 VAL  ( 534-) -  -    -0.95
+  346 ASN  ( 551-) -  -    -0.91
+  366 ILE  ( 571-) -  -    -0.93
+  367 ASN  ( 572-) -  -    -0.91
+  375 ASP  ( 580-) -  -    -0.97
+  387 LYS  ( 592-) -  -    -0.90
+  424 LYS  ( 629-) -  -    -0.98
+  434 TYR  ( 639-) -  -    -0.97
+  457 ILE  ( 662-) -  -    -0.96
+  461 ILE  ( 666-) -  -    -0.95
+  482 LYS  ( 710-) -  -    -0.91
+  483 GLN  ( 711-) -  -    -0.99
+  484 ARG  ( 712-) -  -    -0.93
+  510 PHE  ( 738-) -  -    -1.00
+  528 ASN  ( 756-) -  -    -0.91
+  529 ASN  ( 757-) -  -    -0.93
+  557 ILE  ( 785-) -  -    -0.96
+  571 ILE  ( 799-) -  -    -0.99
+  591 TYR  ( 819-) -  -    -0.98
+  596 ASN  ( 824-) -  -    -0.92
+  604 ASN  ( 832-) -  -    -0.90
+  631 VAL  ( 859-) -  -    -0.99
+  637 LYS  ( 865-) -  -    -0.92
+  639 TYR  ( 867-) -  -    -0.96
+  650 ASP  ( 878-) -  -    -1.00
+  651 ILE  ( 879-) -  -    -0.97
+  678 ASP  ( 906-) -  -    -0.93
+  680 VAL  ( 908-) -  -    -0.92
+  695 ILE  ( 923-) -  -    -0.97
+    4 TRP  ( 162-) -  -    -0.80
+   44 THR  ( 202-) -  -    -0.88
+   51 VAL  ( 209-) -  -    -0.85
+   54 HIS  ( 212-) -  -    -0.86
+   72 HIS  ( 230-) -  -    -0.87
+   75 ASP  ( 233-) -  -    -0.80
+   82 PHE  ( 240-) -  -    -0.82
+   99 THR  ( 257-) -  -    -0.84
+  169 LYS  ( 327-) -  -    -0.80
+  189 ILE  ( 347-) -  -    -0.82
+  201 THR  ( 359-) -  -    -0.88
+  228 CYS  ( 386-) -  -    -0.84
+  230 TYR  ( 388-) -  -    -0.87
+  233 MET  ( 391-) -  -    -0.81
+  295 HIS  ( 453-) -  -    -0.86
+  311 TYR  ( 516-) -  -    -0.80
+  314 ASN  ( 519-) -  -    -0.82
+  332 VAL  ( 537-) -  -    -0.82
+  359 VAL  ( 564-) -  -    -0.82
+  364 VAL  ( 569-) -  -    -0.82
+  370 VAL  ( 575-) -  -    -0.82
+  384 TRP  ( 589-) -  -    -0.88
+  409 LYS  ( 614-) -  -    -0.85
+  412 ASN  ( 617-) -  -    -0.89
+  427 PHE  ( 632-) -  -    -0.88
+  433 ASP  ( 638-) -  -    -0.86
+  439 ARG  ( 644-) -  -    -0.87
+  453 MET  ( 658-) -  -    -0.90
+  469 ILE  ( 674-) -  -    -0.80
+  472 ASN  ( 677-) -  -    -0.82
+  502 MET  ( 730-) -  -    -0.87
+  505 ILE  ( 733-) -  -    -0.89
+  551 ARG  ( 779-) -  -    -0.83
+  584 ILE  ( 812-) -  -    -0.81
+  598 THR  ( 826-) -  -    -0.83
+  599 MET  ( 827-) -  -    -0.89
+  603 VAL  ( 831-) -  -    -0.87
+  638 ASP  ( 866-) -  -    -0.84
+  641 GLU  ( 869-) -  -    -0.82
+  649 TYR  ( 877-) -  -    -0.83
+  682 TRP  ( 910-) -  -    -0.85
+  689 LYS  ( 917-) -  -    -0.86
+  691 ILE  ( 919-) -  -    -0.81
+  696 HIS  ( 924-) -  -    -0.90
+  699 LYS  ( 927-) -  -    -0.87
+   20 THR  ( 178-) -  -    -0.78
+   48 GLN  ( 206-) -  -    -0.79
+   95 ILE  ( 253-) -  -    -0.79
+  140 ARG  ( 298-) -  -    -0.76
+  147 TRP  ( 305-) -  -    -0.77
+  182 GLN  ( 340-) -  -    -0.76
+  241 ARG  ( 399-) -  -    -0.73
+  288 GLU  ( 446-) -  -    -0.75
+  325 THR  ( 530-) -  -    -0.78
+  352 ARG  ( 557-) -  -    -0.75
+  362 THR  ( 567-) -  -    -0.72
+  380 CYS  ( 585-) -  -    -0.74
+  388 ILE  ( 593-) -  -    -0.78
+  389 GLU  ( 594-) -  -    -0.72
+  417 ILE  ( 622-) -  -    -0.73
+  422 PHE  ( 627-) -  -    -0.78
+  423 PHE  ( 628-) -  -    -0.76
+  428 VAL  ( 633-) -  -    -0.74
+  471 ASN  ( 676-) -  -    -0.79
+  498 THR  ( 726-) -  -    -0.78
+  506 ILE  ( 734-) -  -    -0.79
+  524 PHE  ( 752-) -  -    -0.78
+  538 LYS  ( 766-) -  -    -0.74
+  554 ASP  ( 782-) -  -    -0.78
+  579 PHE  ( 807-) -  -    -0.74
+  622 ASN  ( 850-) -  -    -0.78
+  694 GLN  ( 922-) -  -    -0.70
+   14 LEU  ( 172-) -  -    -0.61
+   25 HIS  ( 183-) -  -    -0.62
+   29 THR  ( 187-) -  -    -0.61
+   67 SER  ( 225-) -  -    -0.61
+   87 THR  ( 245-) -  -    -0.69
+   89 SER  ( 247-) -  -    -0.64
+  112 SER  ( 270-) -  -    -0.62
+  154 TYR  ( 312-) -  -    -0.67
+  181 THR  ( 339-) -  -    -0.66
+  183 MET  ( 341-) -  -    -0.70
+  188 SER  ( 346-) -  -    -0.64
+  213 ASP  ( 371-) -  -    -0.63
+  225 ASP  ( 383-) -  -    -0.61
+  239 THR  ( 397-) -  -    -0.64
+  248 ASN  ( 406-) -  -    -0.69
+  255 SER  ( 413-) -  -    -0.64
+  313 THR  ( 518-) -  -    -0.69
+  358 THR  ( 563-) -  -    -0.66
+  386 THR  ( 591-) -  -    -0.66
+  396 SER  ( 601-) -  -    -0.62
+  400 ARG  ( 605-) -  -    -0.65
+  413 SER  ( 618-) -  -    -0.62
+  414 TYR  ( 619-) -  -    -0.66
+  451 CYS  ( 656-) -  -    -0.70
+  460 SER  ( 665-) -  -    -0.65
+  463 MET  ( 668-) -  -    -0.63
+  512 THR  ( 740-) -  -    -0.69
+  532 GLU  ( 760-) -  -    -0.61
+  600 HIS  ( 828-) -  -    -0.65
+  606 THR  ( 834-) -  -    -0.66
+  612 VAL  ( 840-) -  -    -0.60
+  617 ASN  ( 845-) -  -    -0.69
+  636 TYR  ( 864-) -  -    -0.66
+  670 GLN  ( 898-) -  -    -0.66
+  677 SER  ( 905-) -  -    -0.64
+    8 CYS  ( 166-) -  -    -0.52
+   30 ARG  ( 188-) -  -    -0.59
+   34 LYS  ( 192-) -  -    -0.52
+   63 SER  ( 221-) -  -    -0.55
+   64 TYR  ( 222-) -  -    -0.58
+   69 GLU  ( 227-) -  -    -0.52
+   77 SER  ( 235-) -  -    -0.55
+   81 SER  ( 239-) -  -    -0.56
+   98 ARG  ( 256-) -  -    -0.51
+  102 THR  ( 260-) -  -    -0.58
+  111 THR  ( 269-) -  -    -0.52
+  153 PHE  ( 311-) -  -    -0.54
+  204 GLU  ( 362-) -  -    -0.57
+  216 HIS  ( 374-) -  -    -0.50
+  218 ILE  ( 376-) -  -    -0.58
+  224 CYS  ( 382-) -  -    -0.51
+  234 SER  ( 392-) -  -    -0.58
+  258 MET  ( 416-) -  -    -0.54
+  280 TRP  ( 438-) -  -    -0.58
+  292 VAL  ( 450-) -  -    -0.57
+  351 VAL  ( 556-) -  -    -0.55
+  374 LEU  ( 579-) -  -    -0.57
+  390 VAL  ( 595-) -  -    -0.55
+  398 GLU  ( 603-) -  -    -0.56
+  430 ARG  ( 635-) -  -    -0.53
+  440 SER  ( 645-) -  -    -0.55
+  443 MET  ( 648-) -  -    -0.52
+  444 GLU  ( 649-) -  -    -0.60
+  445 GLU  ( 650-) -  -    -0.53
+  470 GLN  ( 675-) -  -    -0.59
+  540 PHE  ( 768-) -  -    -0.59
+  581 SER  ( 809-) -  -    -0.55
+  583 PHE  ( 811-) -  -    -0.55
+  594 SER  ( 822-) -  -    -0.56
+  609 SER  ( 837-) -  -    -0.58
+  613 SER  ( 841-) -  -    -0.55
+  646 GLU  ( 874-) -  -    -0.58
+  652 SER  ( 880-) -  -    -0.55
+  671 ASN  ( 899-) -  -    -0.51
+ 
+# 50 # Note: chi-1/chi-2 angle correlation Z-score OK
+The score expressing how well the chi-1/chi-2 angles of all residues
+correspond to the populated areas in the database is
+within expected ranges for well-refined structures.
+ 
+ chi-1/chi-2 correlation Z-score : -2.425
+ 
+# 51 # Warning: Unusual rotamers
+The residues listed in the table below have a rotamer that is not seen very
+often in the database of solved protein structures. This option determines
+for every residue the position specific chi-1 rotamer distribution.
+Thereafter it verified whether the actual residue in the molecule has the
+most preferred rotamer or not. If the actual rotamer is the preferred one,
+the score is 1.0. If the actual rotamer is unique, the score is 0.0. If
+there are two preferred rotamers, with a population distribution of 3:2 and
+your rotamer sits in the lesser populated rotamer, the score will be 0.667.
+No value will be given if insufficient hits are found in the database.
+ 
+It is not necessarily an error if a few residues have rotamer values below
+0.3, but careful inspection of all residues with these low values could be
+worth it.
+ 
+  634 CYS  ( 862-) -  -   0.35
+  677 SER  ( 905-) -  -   0.35
+  598 THR  ( 826-) -  -   0.36
+   30 ARG  ( 188-) -  -   0.38
+  489 TYR  ( 717-) -  -   0.39
+  578 SER  ( 806-) -  -   0.39
+ 
+# 52 # Warning: Unusual backbone conformations
+For the residues listed in the table below, the backbone formed by itself and
+two neighbouring residues on either side is in a conformation that is not
+seen very often in the database of solved protein structures. The number
+given in the table is the number of similar backbone conformations in the
+database with the same amino acid in the centre.
+ 
+For this check, backbone conformations are compared with database structures
+using C-alpha superpositions with some restraints on the backbone oxygen
+positions.
+ 
+A residue mentioned in the table can be part of a strange loop, or there
+might be something wrong with it or its directly surrounding residues. There
+are a few of these in every protein, but in any case it is worth looking at,
+especially if a regular DSSP secondary structure (H or S for helix or strand,
+respectively) is indicated!
+ 
+    6 VAL  ( 164-) -  -       0
+   10 GLU  ( 168-) -  -       0
+   74 PHE  ( 232-) -  -       0
+   75 ASP  ( 233-) -  -       0
+   76 LEU  ( 234-) -  -       0
+   77 SER  ( 235-) -  -       0
+   99 THR  ( 257-) -  -       0
+  100 THR  ( 258-) -  -       0
+  101 CYS  ( 259-) -  -       0
+  102 THR  ( 260-) -  -       0
+  131 ASN  ( 289-) -  -       0
+  227 THR  ( 385-) -  -       0
+  309 PRO  ( 514-) -  -       0
+  311 TYR  ( 516-) -  -       0
+  349 PRO  ( 554-) -  -       0
+  353 SER  ( 558-) -  -       0
+  595 LYS  ( 823-) -  -       0
+  609 SER  ( 837-) -  -       0
+  616 GLN  ( 844-) -  -       0
+  617 ASN  ( 845-) -  -       0
+   78 ASP  ( 236-) -  -       1
+   79 LYS  ( 237-) -  -       1
+   80 ASP  ( 238-) -  -       1
+  137 PHE  ( 295-) -  -       1
+  147 TRP  ( 305-) -  -       1
+  215 ARG  ( 373-) -  -       1
+  216 HIS  ( 374-) -  -       1
+  310 ALA  ( 515-) -  -       1
+  355 ILE  ( 560-) -  -       1
+  439 ARG  ( 644-) -  -       1
+  441 PHE  ( 646-) -  - S     1
+  443 MET  ( 648-) -  -       1
+  520 LEU  ( 748-) -  -       1
+   34 LYS  ( 192-) -  -       2
+   54 HIS  ( 212-) -  -       2
+  130 TYR  ( 288-) -  -       2
+  136 GLU  ( 294-) -  -       2
+  222 PRO  ( 380-) -  -       2
+  237 CYS  ( 395-) -  -       2
+  280 TRP  ( 438-) -  -       2
+  281 ASP  ( 439-) -  -       2
+  351 VAL  ( 556-) -  -       2
+  356 ARG  ( 561-) -  -       2
+  390 VAL  ( 595-) -  -       2
+  451 CYS  ( 656-) -  -       2
+  608 SER  ( 836-) -  -       2
+ 
+# 53 # Warning: Backbone conformation Z-score low
+A comparison of the backbone conformation with database proteins shows that
+the backbone fold in this structure is unusual.
+ 
+ Backbone conformation Z-score : -2.643
+ 
+# 54 # Note: Omega angle restraint OK
+The omega angles for trans-peptide bonds in a structure is expected to give a
+gaussian distribution with the average around +178 degrees, and a standard
+deviation around 5.5. In the current structure the standard deviation agrees
+with this expectation.
+ 
+Omega average and std. deviation= 178.990 6.029
+ 
+# 55 # Note: PRO puckering amplitude OK
+Puckering amplitudes for all PRO residues are within normal ranges.
+ 
+# 56 # Warning: Unusual PRO puckering phases
+The proline residues listed in the table below have a puckering phase that is
+not expected to occur in protein structures. Puckering parameters were
+calculated by the method of Cremer and Pople [REF]. Normal PRO rings
+approximately show a so-called envelope conformation with the C-gamma atom
+above the plane of the ring (phi=+72 degrees), or a half-chair conformation
+with C-gamma below and C-beta above the plane of the ring (phi=-90 degrees).
+If phi deviates strongly from these values, this is indicative of a very
+strange conformation for a PRO residue, and definitely requires a manual
+check of the data. Be aware that this is a warning with a low confidence
+level. See: Who checks the checkers? Four validation tools applied to eight
+atomic resolution structures [REF].
+ 
+  349 PRO  ( 554-) -  -   49.1 half-chair C-delta/C-gamma (54 degrees)
+ 
+# 57 # Warning: Backbone oxygen evaluation
+The residues listed in the table below have an unusual backbone oxygen
+position.
+ 
+For each of the residues in the structure, a search was performed to find
+5-residue stretches in the WHAT CHECK database with superposable C-alpha
+coordinates, and some restraints on the neighbouring backbone oxygens.
+ 
+In the following table the RMS distance between the backbone oxygen positions
+of these matching structures in the database and the position of the backbone
+oxygen atom in the current residue is given. If this number is larger than
+1.5 a significant number of structures in the database show an alternative
+position for the backbone oxygen. If the number is larger than 2.0 most
+matching backbone fragments in the database have the peptide plane flipped.
+A manual check needs to be performed to assess whether the experimental data
+can support that alternative as well. The number in the last column is the
+number of database hits (maximum 80) used in the calculation. It is "normal"
+that some glycine residues show up in this list, but they are still worth
+checking!
+ 
+   98 ARG  ( 256-) -  -  2.13   45
+  284 GLY  ( 442-) -  -  2.07   12
+    5 ASN  ( 163-) -  -  1.72   12
+   61 ARG  ( 219-) -  -  1.65   28
+  496 GLY  ( 724-) -  -  1.63   80
+ 
+# 58 # Note: Peptide bond conformations
+There was no need to complain about the peptide bond of a single amino acid.
+ 
+# 59 # Error: Abnormally short interatomic distances
+The pairs of atoms listed in the table below have an unusually short
+interactomic distance; each bump is listed in only one direction.
+ 
+The contact distances of all atom pairs have been checked. Two atoms are
+said to `bump' if they are closer than the sum of their Van der Waals radii
+minus 0.40 Angstrom. For hydrogen bonded pairs a tolerance of 0.55 Angstrom
+is used. The first number in the table tells you how much shorter that
+specific contact is than the acceptable limit. The second distance is the
+distance between the centres of the two atoms. Although we believe that two
+water atoms at 2.4 A distance are too close, we only report water pairs that
+are closer than this rather short distance.
+ 
+INTRA and INTER indicate whether the clashes are between atoms in the same
+asymmetric unit, or atoms in symmetry related asymmetric units, respectively.
+The last text-item on each line represents the status of the atom pair. If
+the final column contains the text 'HB', the bump criterion was relaxed
+because there could be a hydrogen bond. Similarly relaxed criteria are used
+for 1--3 and 1--4 interactions (listed as 'B2' and 'B3', respectively).
+If the last column is 'BF', the sum of the B-factors of the atoms is higher
+than 80, which makes the appearance of the bump somewhat less severe because
+the atoms probably are not there anyway. BL, on the other hand, indicates
+that the bumping atoms both have a low B-factor, and that makes the bumps
+more worrisome.
+ 
+Bumps between atoms for which the sum of their occupancies is lower than one
+are not reported. If the MODEL number does not exist (as is the case in most
+X-ray files), a minus sign is printed instead.
+ 
+   98 ARG  ( 256-) -  -    O   <-->    99 THR  ( 257-) -  -    N      1.52    0.28  INTRA BL
+   99 THR  ( 257-) -  -    CG2 <-->   100 THR  ( 258-) -  -    O      1.17    1.53  INTRA BL
+   99 THR  ( 257-) -  -    CG2 <-->   100 THR  ( 258-) -  -    N      1.08    1.92  INTRA BL
+  310 ALA  ( 515-) -  -    O   <-->   311 TYR  ( 516-) -  -    CG     1.00    1.70  INTRA BL
+    1 HIS  ( 159-) -  -    CE1 <-->    41 GLN  ( 199-) -  -    NE2    0.99    2.11  INTRA BL
+  102 THR  ( 260-) -  -    CG2 <-->   103 LYS  ( 261-) -  -    N      0.97    2.03  INTRA BL
+  304 TRP  ( 509-) -  -    O   <-->   305 ARG  ( 510-) -  -    N      0.94    0.86  INTRA BL
+   98 ARG  ( 256-) -  -    O   <-->    99 THR  ( 257-) -  -    CA     0.92    1.48  INTRA BL
+  305 ARG  ( 510-) -  -    NH2 <-->   306 ASP  ( 511-) -  -    OD2    0.89    1.81  INTRA BL
+  100 THR  ( 258-) -  -    OG1 <-->   101 CYS  ( 259-) -  -    N      0.86    1.74  INTRA BL
+   99 THR  ( 257-) -  -    CG2 <-->   100 THR  ( 258-) -  -    C      0.74    2.36  INTRA BL
+  100 THR  ( 258-) -  -    CB  <-->   101 CYS  ( 259-) -  -    N      0.67    2.03  INTRA BL
+  304 TRP  ( 509-) -  -    O   <-->   305 ARG  ( 510-) -  -    CA     0.66    1.74  INTRA BL
+   99 THR  ( 257-) -  -    CB  <-->   100 THR  ( 258-) -  -    N      0.66    2.04  INTRA BL
+   99 THR  ( 257-) -  -    OG1 <-->   100 THR  ( 258-) -  -    N      0.65    1.95  INTRA BL
+  310 ALA  ( 515-) -  -    O   <-->   311 TYR  ( 516-) -  -    CD2    0.65    2.05  INTRA BL
+    1 HIS  ( 159-) -  -    CE1 <-->    41 GLN  ( 199-) -  -    CD     0.61    2.59  INTRA BL
+  106 TYR  ( 264-) -  -    CB  <-->   292 VAL  ( 450-) -  -    CG1    0.61    2.59  INTRA BL
+  179 VAL  ( 337-) -  -    CG2 <-->   272 LYS  ( 430-) -  -    CD     0.55    2.65  INTRA BL
+  308 PHE  ( 513-) -  -    CE2 <-->   309 PRO  ( 514-) -  -    O      0.55    2.15  INTRA BL
+  310 ALA  ( 515-) -  -    C   <-->   311 TYR  ( 516-) -  -    CG     0.54    2.56  INTRA BL
+  310 ALA  ( 515-) -  -    O   <-->   311 TYR  ( 516-) -  -    CB     0.53    2.07  INTRA BL
+  108 MET  ( 266-) -  -    O   <-->   109 GLY  ( 267-) -  -    O      0.48    1.57  INTRA BL
+  179 VAL  ( 337-) -  -    CG2 <-->   272 LYS  ( 430-) -  -    NZ     0.47    2.63  INTRA BL
+  305 ARG  ( 510-) -  -    NH2 <-->   306 ASP  ( 511-) -  -    CG     0.46    2.64  INTRA BL
+  304 TRP  ( 509-) -  -    CZ2 <-->   308 PHE  ( 513-) -  -    CE1    0.45    2.75  INTRA BL
+  304 TRP  ( 509-) -  -    CE2 <-->   308 PHE  ( 513-) -  -    CD1    0.44    2.76  INTRA BL
+  474 PHE  ( 679-) -  -    O   <-->   479 PRO  ( 684-) -  -    CG     0.41    2.39  INTRA BL
+  304 TRP  ( 509-) -  -    O   <-->   306 ASP  ( 511-) -  -    N      0.40    2.30  INTRA BL
+  304 TRP  ( 509-) -  -    O   <-->   305 ARG  ( 510-) -  -    C      0.40    2.20  INTRA BL
+  304 TRP  ( 509-) -  -    CZ2 <-->   308 PHE  ( 513-) -  -    CD1    0.40    2.80  INTRA BL
+   99 THR  ( 257-) -  -    CG2 <-->   100 THR  ( 258-) -  -    CA     0.39    2.71  INTRA BL
+    8 CYS  ( 166-) -  -    SG  <-->     9 ARG  ( 167-) -  -    N      0.37    2.83  INTRA BL
+  336 ARG  ( 541-) -  -    NH2 <-->   443 MET  ( 648-) -  -    O      0.37    2.33  INTRA BL
+  179 VAL  ( 337-) -  -    CG1 <-->   268 HIS  ( 426-) -  -    CD2    0.34    2.86  INTRA BL
+  223 LEU  ( 381-) -  -    O   <-->   445 GLU  ( 650-) -  -    CD     0.31    2.49  INTRA BL
+  309 PRO  ( 514-) -  -    CB  <-->   310 ALA  ( 515-) -  -    N      0.29    2.41  INTRA BL
+  212 CYS  ( 370-) -  -    N   <-->   237 CYS  ( 395-) -  -    SG     0.28    3.02  INTRA BL
+  609 SER  ( 837-) -  -    OG  <-->   635 ARG  ( 863-) -  -    NH1    0.27    2.43  INTRA BL
+  446 CYS  ( 651-) -  -    SG  <-->   447 ALA  ( 652-) -  -    N      0.27    2.93  INTRA BL
+  108 MET  ( 266-) -  -    O   <-->   109 GLY  ( 267-) -  -    C      0.26    2.34  INTRA BL
+   99 THR  ( 257-) -  -    OG1 <-->   105 LYS  ( 263-) -  -    CD     0.25    2.55  INTRA BL
+  424 LYS  ( 629-) -  -    NZ  <-->   454 GLU  ( 659-) -  -    OE1    0.25    2.45  INTRA BL
+  310 ALA  ( 515-) -  -    C   <-->   311 TYR  ( 516-) -  -    CB     0.25    2.55  INTRA BL
+  308 PHE  ( 513-) -  -    CD2 <-->   309 PRO  ( 514-) -  -    O      0.24    2.46  INTRA BL
+  153 PHE  ( 311-) -  -    O   <-->   534 ARG  ( 762-) -  -    NH2    0.23    2.47  INTRA BL
+  170 ILE  ( 328-) -  -    CD1 <-->   547 PRO  ( 775-) -  -    CG     0.23    2.97  INTRA BL
+  102 THR  ( 260-) -  -    CB  <-->   103 LYS  ( 261-) -  -    N      0.22    2.48  INTRA BL
+  398 GLU  ( 603-) -  -    O   <-->   402 ILE  ( 607-) -  -    CG1    0.21    2.59  INTRA BL
+  129 ASP  ( 287-) -  -    N   <-->   138 ASN  ( 296-) -  -    OD1    0.20    2.50  INTRA BL
+  610 PHE  ( 838-) -  -    N   <-->   634 CYS  ( 862-) -  -    O      0.20    2.50  INTRA BL
+  222 PRO  ( 380-) -  -    O   <-->   223 LEU  ( 381-) -  -    CG     0.19    2.51  INTRA BL
+  108 MET  ( 266-) -  -    C   <-->   109 GLY  ( 267-) -  -    O      0.19    2.41  INTRA BL
+  446 CYS  ( 651-) -  -    SG  <-->   451 CYS  ( 656-) -  -    N      0.18    3.12  INTRA BL
+   29 THR  ( 187-) -  -    O   <-->    40 LEU  ( 198-) -  -    CB     0.16    2.64  INTRA BL
+  690 ASP  ( 918-) -  -    O   <-->   694 GLN  ( 922-) -  -    CB     0.16    2.64  INTRA BL
+  310 ALA  ( 515-) -  -    O   <-->   311 TYR  ( 516-) -  -    CD1    0.15    2.55  INTRA BL
+  308 PHE  ( 513-) -  -    CD2 <-->   309 PRO  ( 514-) -  -    C      0.15    2.95  INTRA BL
+  432 GLY  ( 637-) -  -    O   <-->   616 GLN  ( 844-) -  -    NE2    0.14    2.56  INTRA BL
+  470 GLN  ( 675-) -  -    O   <-->   474 PHE  ( 679-) -  -    CB     0.13    2.67  INTRA BL
+   45 ASP  ( 203-) -  -    O   <-->    48 GLN  ( 206-) -  -    N      0.13    2.57  INTRA BL
+  460 SER  ( 665-) -  -    O   <-->   464 LEU  ( 669-) -  -    CB     0.12    2.68  INTRA BL
+   68 ARG  ( 226-) -  -    NH2 <-->   278 TYR  ( 436-) -  -    OH     0.12    2.58  INTRA BL
+  589 TYR  ( 817-) -  -    OH  <-->   600 HIS  ( 828-) -  -    O      0.12    2.28  INTRA BL
+  310 ALA  ( 515-) -  -    C   <-->   311 TYR  ( 516-) -  -    CD1    0.11    2.99  INTRA BL
+   45 ASP  ( 203-) -  -    O   <-->    47 ILE  ( 205-) -  -    N      0.11    2.59  INTRA BL
+  308 PHE  ( 513-) -  -    CE2 <-->   309 PRO  ( 514-) -  -    C      0.11    2.99  INTRA BL
+  467 GLN  ( 672-) -  -    NE2 <-->   503 GLU  ( 731-) -  -    OE2    0.11    2.59  INTRA BL
+  128 GLY  ( 286-) -  -    O   <-->   484 ARG  ( 712-) -  -    NH2    0.11    2.59  INTRA BL
+  702 MET  ( 930-) -  -    O   <-->   706 PHE  ( 934-) -  -    CB     0.11    2.69  INTRA BL
+  478 ILE  ( 683-) -  -    N   <-->   479 PRO  ( 684-) -  -    CD     0.10    2.90  INTRA BL
+  100 THR  ( 258-) -  -    O   <-->   102 THR  ( 260-) -  -    N      0.10    2.60  INTRA BL
+   11 ALA  ( 169-) -  -    O   <-->    15 LYS  ( 173-) -  -    CB     0.09    2.71  INTRA BL
+  127 ASP  ( 285-) -  -    O   <-->   138 ASN  ( 296-) -  -    ND2    0.09    2.61  INTRA BL
+  447 ALA  ( 652-) -  -    N   <-->   451 CYS  ( 656-) -  -    SG     0.08    3.22  INTRA BL
+  308 PHE  ( 513-) -  -    CE2 <-->   310 ALA  ( 515-) -  -    CA     0.08    3.12  INTRA BL
+  454 GLU  ( 659-) -  -    O   <-->   458 GLN  ( 663-) -  -    CB     0.08    2.72  INTRA BL
+   65 PRO  ( 223-) -  -    O   <-->    70 LYS  ( 228-) -  -    NZ     0.08    2.62  INTRA BL
+  179 VAL  ( 337-) -  -    CG2 <-->   272 LYS  ( 430-) -  -    CE     0.07    3.13  INTRA BL
+  106 TYR  ( 264-) -  -    CD1 <-->   292 VAL  ( 450-) -  -    CG1    0.07    3.13  INTRA BL
+  222 PRO  ( 380-) -  -    C   <-->   223 LEU  ( 381-) -  -    CG     0.07    3.03  INTRA BL
+  409 LYS  ( 614-) -  -    O   <-->   413 SER  ( 618-) -  -    CB     0.06    2.74  INTRA BL
+  421 ALA  ( 626-) -  -    O   <-->   580 THR  ( 808-) -  -    OG1    0.06    2.34  INTRA BL
+  160 ASP  ( 318-) -  -    OD2 <-->   279 ARG  ( 437-) -  -    NH2    0.06    2.64  INTRA BL
+   17 LYS  ( 175-) -  -    O   <-->    20 THR  ( 178-) -  -    OG1    0.05    2.35  INTRA BL
+  131 ASN  ( 289-) -  -    CG  <-->   132 GLY  ( 290-) -  -    N      0.05    2.95  INTRA BL
+  108 MET  ( 266-) -  -    C   <-->   109 GLY  ( 267-) -  -    C      0.05    2.75  INTRA BL
+  497 LEU  ( 725-) -  -    O   <-->   501 TYR  ( 729-) -  -    N      0.05    2.65  INTRA BL
+  652 SER  ( 880-) -  -    OG  <-->   653 LYS  ( 881-) -  -    N      0.04    2.56  INTRA BL
+  304 TRP  ( 509-) -  -    CE3 <-->   307 ARG  ( 512-) -  -    O      0.04    2.76  INTRA BL
+  593 TYR  ( 821-) -  -    OH  <-->   654 ASP  ( 882-) -  -    OD1    0.04    2.36  INTRA BL
+  106 TYR  ( 264-) -  -    O   <-->   292 VAL  ( 450-) -  -    CG1    0.03    2.77  INTRA BL
+  131 ASN  ( 289-) -  -    O   <-->   141 LYS  ( 299-) -  -    CE     0.03    2.77  INTRA BL
+   98 ARG  ( 256-) -  -    O   <-->    99 THR  ( 257-) -  -    C      0.03    2.57  INTRA BL
+  239 THR  ( 397-) -  -    O   <-->   243 SER  ( 401-) -  -    OG     0.02    2.38  INTRA BL
+  489 TYR  ( 717-) -  -    O   <-->   545 ARG  ( 773-) -  -    NH2    0.02    2.68  INTRA BL
+  106 TYR  ( 264-) -  -    C   <-->   292 VAL  ( 450-) -  -    CG1    0.02    3.18  INTRA BL
+  308 PHE  ( 513-) -  -    CZ  <-->   309 PRO  ( 514-) -  -    O      0.02    2.68  INTRA BL
+  205 ASN  ( 363-) -  -    OD1 <-->   208 SER  ( 366-) -  -    OG     0.01    2.39  INTRA BL
+  305 ARG  ( 510-) -  -    CZ  <-->   306 ASP  ( 511-) -  -    OD2    0.01    2.79  INTRA BL
+  106 TYR  ( 264-) -  -    CG  <-->   292 VAL  ( 450-) -  -    CG1    0.01    3.19  INTRA BL
+    3 PRO  ( 161-) -  -    CD  <-->    39 VAL  ( 197-) -  -    CG2    0.01    3.19  INTRA BL
+  309 PRO  ( 514-) -  -    CG  <-->   310 ALA  ( 515-) -  -    N      0.01    2.99  INTRA BL
+  305 ARG  ( 510-) -  -    CZ  <-->   306 ASP  ( 511-) -  -    CG     0.01    3.19  INTRA BL
+  277 ASN  ( 435-) -  -    ND2 <-->   553 LYS  ( 781-) -  -    O      0.01    2.69  INTRA BL
+  645 SER  ( 873-) -  -    OG  <-->   647 ASN  ( 875-) -  -    O      0.01    2.39  INTRA BL
+  102 THR  ( 260-) -  -    CG2 <-->   103 LYS  ( 261-) -  -    CA     0.01    3.09  INTRA BL
+ 
+# 60 # Note: Some notes regarding these bumps
+The bumps have been binned in 5 categories ranging from 'please look at'
+till 'must fix'. Additionally, the integrated sum of all bumps, the squared
+sum of all bumps, and these latter two values normalized by the number of
+contacts are listed too for comparison purposes between, for example, small
+and large proteins.
+ 
+Total bump value: 31.324
+Total bump value per residue: 0.151
+Total number of bumps: 107
+Total squared bump value: 19.341
+Total number of bumps in the mildest bin: 65
+Total number of bumps in the second bin: 20
+Total number of bumps in the middle bin: 12
+Total number of bumps in the fourth bin: 6
+Total number of bumps in the worst bin: 4
+ 
+# 61 # Note: Inside/outside distribution check
+The following list contains per-residue Z-scores describing how well the
+residue's observed accessibility fits the expected one. A positive Z-score
+indicates "more exposure than usual", whereas a negative Z-score means
+"more buried than usual". The absolute value of the Z-score must be used to
+judge the quality. Today WHAT CHECK saw no reason to complain.
+ 
+# 62 # Warning: Inside/Outside residue distribution unusual
+The distribution of residue types over the inside and the outside of the
+protein is unusual. Normal values for the RMS Z-score below are between
+0.84 and 1.16. The fact that it is higher in this structure could be caused
+by transmembrane helices, by the fact that it is part of a multimeric active
+unit, or by mistraced segments in the density.
+ 
+inside/outside RMS Z-score : 1.238
+ 
+# 63 # Note: Inside/Outside RMS Z-score plot
+The Inside/Outside distribution normality RMS Z-score over a 15 residue
+window is plotted as function of the residue number. High areas in the plot
+(above 1.5) indicate unusual inside/outside patterns.
+ 
+In the TeX file, a plot has been inserted here
+ 
+Chain without chain identifier
+ 
+# 64 # Warning: Abnormal packing environment for some residues
+The residues listed in the table below have an unusual packing environment.
+ 
+The packing environment of the residues is compared with the average packing
+environment for all residues of the same type in good PDB files. A low
+packing score can indicate one of several things: Poor packing, misthreading
+of the sequence through the density, crystal contacts, contacts with a
+co-factor, or the residue is part of the active site. It is not uncommon to
+see a few of these, but in any case this requires further inspection of the
+residue.
+ 
+  629 TYR  ( 857-) -  -  -8.70
+  156 TYR  ( 314-) -  -  -8.09
+  307 ARG  ( 512-) -  -  -7.32
+  305 ARG  ( 510-) -  -  -7.31
+    9 ARG  ( 167-) -  -  -6.97
+   66 PHE  ( 224-) -  -  -6.49
+  130 TYR  ( 288-) -  -  -6.26
+  595 LYS  ( 823-) -  -  -6.25
+  352 ARG  ( 557-) -  -  -6.15
+  427 PHE  ( 632-) -  -  -6.11
+   32 LEU  ( 190-) -  -  -6.01
+  439 ARG  ( 644-) -  -  -6.01
+  546 ARG  ( 774-) -  -  -5.97
+   61 ARG  ( 219-) -  -  -5.89
+  553 LYS  ( 781-) -  -  -5.69
+  494 PHE  ( 722-) -  -  -5.68
+  356 ARG  ( 561-) -  -  -5.63
+  282 LEU  ( 440-) -  -  -5.57
+  215 ARG  ( 373-) -  -  -5.57
+  616 GLN  ( 844-) -  -  -5.56
+  279 ARG  ( 437-) -  -  -5.53
+  430 ARG  ( 635-) -  -  -5.51
+  343 LEU  ( 548-) -  -  -5.46
+  154 TYR  ( 312-) -  -  -5.44
+  551 ARG  ( 779-) -  -  -5.44
+  644 TRP  ( 872-) -  -  -5.42
+  116 ASN  ( 274-) -  -  -5.41
+  545 ARG  ( 773-) -  -  -5.40
+  214 GLN  ( 372-) -  -  -5.40
+   35 LYS  ( 193-) -  -  -5.40
+  617 ASN  ( 845-) -  -  -5.21
+   74 PHE  ( 232-) -  -  -5.15
+  157 GLN  ( 315-) -  -  -5.15
+   34 LYS  ( 192-) -  -  -5.12
+   62 LEU  ( 220-) -  -  -5.10
+  149 ARG  ( 307-) -  -  -5.04
+  622 ASN  ( 850-) -  -  -5.04
+ 
+# 65 # Warning: Abnormal packing environment for sequential residues
+A stretch of at least three sequential residues with a questionable packing
+environment was found. This could indicate that these residues are part
+of a strange loop. It might also be an indication of misthreading in the
+density. However, it can also indicate that one or more residues in this
+stretch have other problems such as, for example, missing atoms, very
+weird angles or bond lengths, etc.
+ 
+The table below lists the first and last residue in each stretch found,
+as well as the average residue score of the series.
+ 
+   34 LYS  ( 192-) -  -       36 --- ILE   194- (- ) -       -4.88
+  625 LEU  ( 853-) -  -      627 --- LEU   855- (- ) -       -4.54
+ 
+# 66 # Warning: Structural average packing environment a bit worrisome
+The structural average packing score is a bit low.
+ 
+The protein is probably threaded correctly, but either poorly refined, or it
+is just a protein with an unusual (but correct) structure. The average
+packing score of 200 highly refined X-ray structures was -0.5+/-0.4 [REF].
+ 
+ 
+Average for range     1 -  708 :  -1.435
+ 
+# 67 # Note: Quality value plot
+The quality value smoothed over a 10 residue window is plotted as function
+of the residue number. Low areas in the plot (below -2.0) indicate unusual
+packing.
+ 
+In the TeX file, a plot has been inserted here
+ 
+Chain without chain identifier
+ 
+# 68 # Warning: Low packing Z-score for some residues
+The residues listed in the table below have an unusual packing
+environment according to the 2nd generation packing check. The score
+listed in the table is a packing normality Z-score: positive means
+better than average, negative means worse than average. Only residues
+scoring less than -2.50 are listed here. These are the unusual
+residues in the structure, so it will be interesting to take a
+special look at them.
+ 
+   57 GLN  ( 215-) -  -  -2.78
+  549 ALA  ( 777-) -  -  -2.68
+ 
+# 69 # Note: No series of residues with abnormal new packing environment
+There are no stretches of four or more residues each having a packing
+Z-score worse than -1.75.
+ 
+# 70 # Note: Second generation quality Z-score plot
+The second generation quality Z-score smoothed over a 10 residue window
+is plotted as function of the residue number. Low areas in the plot (below
+-1.3) indicate unusual packing.
+ 
+In the TeX file, a plot has been inserted here
+ 
+Chain without chain identifier
+ 
+# 71 # Warning: No crystallisation information
+No, or very inadequate, crystallisation information was observed upon
+reading the PDB file header records. This information should be available
+in the form of a series of REMARK 280 lines. Without this information a
+few things, such as checking ions in the structure, cannot be performed
+optimally.
+ 
+# 72 # Error: His, Asn, Gln side chain flips
+Listed here are Histidine, Asparagine or Glutamine residues for
+which the orientation determined from hydrogen bonding analysis are
+different from the assignment given in the input. Either they could
+form energetically more favourable hydrogen bonds if the terminal
+group was rotated by 180 degrees, or there is no assignment in the
+input file (atom type 'A') but an assignment could be made. Be aware,
+though, that if the topology could not be determined for one or more
+ligands, then this option will make errors.
+ 
+  138 ASN  ( 296-) -  -
+  346 ASN  ( 551-) -  -
+  458 GLN  ( 663-) -  -
+  467 GLN  ( 672-) -  -
+  472 ASN  ( 677-) -  -
+  694 GLN  ( 922-) -  -
+ 
+# 73 # Note: Histidine type assignments
+For all complete HIS residues in the structure a tentative assignment to
+HIS-D (protonated on ND1), HIS-E (protonated on NE2), or HIS-H (protonated
+on both ND1 and NE2, positively charged) is made based on the hydrogen bond
+network. A second assignment is made based on which of the Engh and Huber
+[REF] histidine geometries fits best to the structure.
+ 
+In the table below all normal histidine residues are listed. The assignment
+based on the geometry of the residue is listed first, together with the RMS
+Z-score for the fit to the Engh and Huber parameters. For all residues where
+the H-bond assignment is different, the assignment is listed in the last
+columns, together with its RMS Z-score to the Engh and Huber parameters.
+ 
+As always, the RMS Z-scores should be close to 1.0 if the residues were
+restrained to the Engh and Huber parameters during refinement, and if
+enough (high resolution) data is available.
+ 
+Please note that because the differences between the geometries of the
+different types are small it is possible that the geometric assignment given
+here does not correspond to the type used in refinement. This is especially
+true if the RMS Z-scores are much higher than 1.0.
+ 
+If the two assignments differ, or the `geometry' RMS Z-score is high, it is
+advisable to verify the hydrogen bond assignment, check the HIS type used
+during the refinement and possibly adjust it.
+ 
+    1 HIS  ( 159-) -  -   HIS-E   0.97
+   25 HIS  ( 183-) -  -   HIS-H   0.08 HIS-E   0.58
+   54 HIS  ( 212-) -  -   HIS-H   0.13 HIS-E   0.59
+   72 HIS  ( 230-) -  -   HIS-H   0.04 HIS-E   0.58
+  126 HIS  ( 284-) -  -   HIS-H   0.09
+  216 HIS  ( 374-) -  -   HIS-E   0.93
+  244 HIS  ( 402-) -  -   HIS-H   0.04 HIS-E   0.59
+  268 HIS  ( 426-) -  -   HIS-H   0.03 HIS-E   0.58
+  295 HIS  ( 453-) -  -   HIS-H   0.05 HIS-E   0.58
+  600 HIS  ( 828-) -  -   HIS-H   0.05 HIS-E   0.59
+  605 HIS  ( 833-) -  -   HIS-H   0.07 HIS-E   0.55
+  696 HIS  ( 924-) -  -   HIS-H   0.09 HIS-E   0.59
+ 
+# 74 # Warning: Buried unsatisfied hydrogen bond donors
+The buried hydrogen bond donors listed in the table below have a hydrogen
+atom that is not involved in a hydrogen bond in the optimized hydrogen bond
+network.
+ 
+Hydrogen bond donors that are buried inside the protein normally use all of
+their hydrogens to form hydrogen bonds within the protein. If there are any
+non hydrogen bonded buried hydrogen bond donors in the structure they will
+be listed here. In very good structures the number of listed atoms will tend
+to zero.
+ 
+Waters are not listed by this option.
+ 
+    4 TRP  ( 162-) -  -    N
+    5 ASN  ( 163-) -  -    N
+   10 GLU  ( 168-) -  -    N
+   13 PHE  ( 171-) -  -    N
+   37 ASN  ( 195-) -  -    N
+   44 THR  ( 202-) -  -    N
+   47 ILE  ( 205-) -  -    N
+   62 LEU  ( 220-) -  -    N
+   68 ARG  ( 226-) -  -    N
+   70 LYS  ( 228-) -  -    N
+   71 GLN  ( 229-) -  -    N
+   73 LEU  ( 231-) -  -    N
+   79 LYS  ( 237-) -  -    N
+   80 ASP  ( 238-) -  -    N
+   81 SER  ( 239-) -  -    N
+   82 PHE  ( 240-) -  -    N
+   84 ASP  ( 242-) -  -    N
+   99 THR  ( 257-) -  -    N
+  111 THR  ( 269-) -  -    N
+  119 TYR  ( 277-) -  -    N
+  130 TYR  ( 288-) -  -    N
+  131 ASN  ( 289-) -  -    N
+  140 ARG  ( 298-) -  -    N
+  140 ARG  ( 298-) -  -    NE
+  141 LYS  ( 299-) -  -    N
+  149 ARG  ( 307-) -  -    N
+  150 TYR  ( 308-) -  -    N
+  153 PHE  ( 311-) -  -    N
+  154 TYR  ( 312-) -  -    N
+  155 LYS  ( 313-) -  -    N
+  156 TYR  ( 314-) -  -    N
+  163 ARG  ( 321-) -  -    NE
+  180 TYR  ( 338-) -  -    OH
+  187 ALA  ( 345-) -  -    N
+  202 MET  ( 360-) -  -    N
+  204 GLU  ( 362-) -  -    N
+  209 MET  ( 367-) -  -    N
+  224 CYS  ( 382-) -  -    N
+  231 TRP  ( 389-) -  -    N
+  233 MET  ( 391-) -  -    N
+  236 ALA  ( 394-) -  -    N
+  239 THR  ( 397-) -  -    N
+  240 ALA  ( 398-) -  -    N
+  248 ASN  ( 406-) -  -    N
+  252 VAL  ( 410-) -  -    N
+  255 SER  ( 413-) -  -    OG
+  278 TYR  ( 436-) -  -    OH
+  285 PHE  ( 443-) -  -    N
+  313 THR  ( 518-) -  -    N
+  314 ASN  ( 519-) -  -    N
+  342 ALA  ( 547-) -  -    N
+  350 SER  ( 555-) -  -    N
+  357 VAL  ( 562-) -  -    N
+  358 THR  ( 563-) -  -    N
+  359 VAL  ( 564-) -  -    N
+  367 ASN  ( 572-) -  -    ND2
+  376 GLU  ( 581-) -  -    N
+  377 VAL  ( 582-) -  -    N
+  393 THR  ( 598-) -  -    N
+  396 SER  ( 601-) -  -    N
+  412 ASN  ( 617-) -  -    ND2
+  417 ILE  ( 622-) -  -    N
+  424 LYS  ( 629-) -  -    N
+  426 ARG  ( 631-) -  -    N
+  428 VAL  ( 633-) -  -    N
+  429 GLY  ( 634-) -  -    N
+  432 GLY  ( 637-) -  -    N
+  435 VAL  ( 640-) -  -    N
+  442 ARG  ( 647-) -  -    NH1
+  453 MET  ( 658-) -  -    N
+  455 LEU  ( 660-) -  -    N
+  461 ILE  ( 666-) -  -    N
+  468 LEU  ( 673-) -  -    N
+  486 GLU  ( 714-) -  -    N
+  498 THR  ( 726-) -  -    N
+  504 MET  ( 732-) -  -    N
+  507 GLN  ( 735-) -  -    NE2
+  515 VAL  ( 743-) -  -    N
+  516 ALA  ( 744-) -  -    N
+  517 SER  ( 745-) -  -    N
+  518 PHE  ( 746-) -  -    N
+  520 LEU  ( 748-) -  -    N
+  521 ALA  ( 749-) -  -    N
+  523 LEU  ( 751-) -  -    N
+  529 ASN  ( 757-) -  -    ND2
+  531 ILE  ( 759-) -  -    N
+  544 LEU  ( 772-) -  -    N
+  555 ILE  ( 783-) -  -    N
+  558 TRP  ( 786-) -  -    N
+  570 VAL  ( 798-) -  -    N
+  571 ILE  ( 799-) -  -    N
+  582 ASP  ( 810-) -  -    N
+  583 PHE  ( 811-) -  -    N
+  584 ILE  ( 812-) -  -    N
+  586 ARG  ( 814-) -  -    N
+  586 ARG  ( 814-) -  -    NH2
+  599 MET  ( 827-) -  -    N
+  603 VAL  ( 831-) -  -    N
+  609 SER  ( 837-) -  -    N
+  611 ASN  ( 839-) -  -    N
+  619 THR  ( 847-) -  -    N
+  620 ALA  ( 848-) -  -    N
+  636 TYR  ( 864-) -  -    N
+  644 TRP  ( 872-) -  -    N
+  649 TYR  ( 877-) -  -    N
+  654 ASP  ( 882-) -  -    N
+  655 PHE  ( 883-) -  -    N
+  662 ARG  ( 890-) -  -    NE
+  691 ILE  ( 919-) -  -    N
+ 
+# 75 # Warning: Buried unsatisfied hydrogen bond acceptors
+The buried side-chain hydrogen bond acceptors listed in the table below are
+not involved in a hydrogen bond in the optimized hydrogen bond network.
+ 
+Side-chain hydrogen bond acceptors buried inside the protein normally form
+hydrogen bonds within the protein. If there are any not hydrogen bonded in
+the optimized hydrogen bond network they will be listed here.
+ 
+Waters are not listed by this option.
+ 
+  160 ASP  ( 318-) -  -    OD1
+  267 GLU  ( 425-) -  -    OE1
+  273 GLN  ( 431-) -  -    OE1
+  458 GLN  ( 663-) -  -    OE1
+  529 ASN  ( 757-) -  -    OD1
+  536 ASP  ( 764-) -  -    OD2
+  573 ASN  ( 801-) -  -    OD1
+ 
+# 76 # Note: Some notes regarding these donors and acceptors
+The donors and acceptors have been counted, also as function of their
+accessibility. The buried donors and acceptors have been binned in five
+categories ranging from not forming any hydrogen bond till forming a poor
+till perfect hydrogen bond. Obviously, the buried donors and acceptors
+with no or just a poor hydrogen bond should be a topic of concern. As every
+protein contains more acceptors than donors, unsatisfied donors are more in
+need of attention than unsatisfied acceptors.
+ 
+Total number of donors: 1017
+- of which buried: 449
+Total number of acceptors: 1060
+- of which buried: 333
+Total number of donor+acceptors: 107
+  (e.g. the Ser Ogamma that can donate and accept)
+- of which buried: 16
+Buried donors: 449
+- without H-bond: 107
+- essentially without H-bond: 1
+- with only a very poor H-bond: 6
+- with a poor H-bond: 12
+- with a H-bond: 323
+Buried acceptors: 333
+- without H-bond: 70
+- essentially without H-bond: 0
+- with only a very poor H-bond: 6
+- with a poor H-bond: 10
+- with a H-bond: 247
+ 
+# 77 # Note: Content of the PDB file as interpreted by WHAT CHECK
+Content of the PDB file as interpreted by WHAT CHECK.
+WHAT CHECK has read your PDB file, and stored it internally in what is called
+'the soup'. The content of this soup is listed here. An extensive explanation
+of all frequently used WHAT CHECK output formats can be found at
+swift.cmbi.ru.nl. Look under output formats. A course on reading this
+'Molecules' table is part of the WHAT CHECK website.
+ 
+     1     1 (  159)   480 (  708)   Protein             checkset
+     2   481 (  709)   708 (  936)   Protein             checkset
+ 
+# 78 # Note: Summary report
+This is an overall summary of the quality of the structure as compared with
+current reliable structures. Numbers in brackets are the average and standard
+deviation observed for a large number of files determined with a similar
+resolution.
+ 
+The second table mostly gives an impression of how well the model conforms
+to common refinement restraint values. These numbers are less than 1.0 if the
+spread in data is too little, and larger than 1.0 when the spread is too
+large. The former does not need to be a problem, the latter always is bad.
+ 
+ Structure Z-scores, positive is better than average:
+  Resolution read from PDB file  :  -1.000
+  1st generation packing quality :  -2.339
+  2nd generation packing quality :  -2.977
+  Ramachandran plot appearance   :  -3.829 (poor)
+  chi-1/chi-2 rotamer normality  :  -2.425
+  Backbone conformation          :  -2.643
+ 
+ RMS Z-scores, should be close to 1.0:
+  Bond lengths                   :   0.400 (tight)
+  Bond angles                    :   0.842
+  Omega angle restraints         :   1.096
+  Side chain planarity           :   0.404 (tight)
+  Improper dihedral distribution :   2.305 (loose)
+  Inside/Outside distribution    :   1.238 (unusual)
+ 
+# 79 # Note: Introduction to refinement recommendations
+First, be aware that the recommendations for crystallographers listed below
+are produced by a computer program that was written by a guy who got his
+PhD in NMR...
+ 
+We have tried to convert the messages written in this report into a small
+set of things you can do with your refinement software to get a better
+structure. The things you should do first are listed first. And in some
+cases you should first fix that problem, then refine a bit further, and
+then run WHAT CHECK again before looking at other problems. If, for example,
+WHAT CHECK has found a problem with the SCALE and CRYST cards, then you must
+first fix that problem, refine the structure a bit further, and run WHAT
+CHECK again because errors in the SCALE and or CRYST card can lead to many
+problems elsewhere in the validation process.
+ 
+It is also important to keep in mind that WHAT CHECK is software and that it
+occasionally totally misunderstands what is the cause of a problem. But, if
+WHAT CHECK lists a problem there normally is a problem albeit that it not
+always is the actual problem that gets listed.
+ 
+# 80 # Note: No crippling problems detected
+Some problems can be so crippling that they negatively influence the
+validity of other validation steps. If such a problem is detected, it must
+be solved and some further refinemnet must be done before you can continue
+working with a new WHAT CHECK report. In this file such problems were not
+detected. You can therefore try to fix as many problems in one go as you
+want.
+ 
+# 81 # Note: No resolution information detected
+WHAT CHECK needs to know the resolution of your data to provide advice
+for the refinement process. This resolution information is needed because
+a Z-score that is very good at 1.0 Angstrom resolution might actually be
+a sign of over-refinement at 3.5 Angstrom, etcetera. So, take a look at
+the formats of REMARK 2 and/or REMARK 3 and put the resolution in ether
+of those 2. An example of a REMARK 2 card is:
+ 
+REMARK   2 RESOLUTION.    4.50 ANGSTROMS.
+==============
+ 
+ 
+WHAT IF
+    G.Vriend,
+      WHAT IF: a molecular modelling and drug design program,
+    J. Mol. Graph. 8, 52--56 (1990).
+ 
+WHAT_CHECK (verification routines from WHAT IF)
+    R.W.W.Hooft, G.Vriend, C.Sander and E.E.Abola,
+      Errors in protein structures
+    Nature 381, 272 (1996).
+    (see also http://swift.cmbi.ru.nl/gv/whatcheck for a course and extra
+    information)
+ 
+PDB facilities
+    Touw WG, Baakman C, Black J, te Beek TA, Krieger E, Joosten RP, Vriend G.
+      A series of PDB-related databanks for everyday needs.
+    Nucleic Acids Research D364-368 Database issue (2015).
+ 
+Bond lengths and angles, protein residues
+    R.Engh and R.Huber,
+      Accurate bond and angle parameters for X-ray protein structure
+      refinement,
+    Acta Crystallogr. A47, 392--400 (1991) and
+    R.Engh and R.Huber,
+    International Tables for Crystallography (2001)
+ 
+ 
+Bond lengths and angles, DNA/RNA
+    G.Parkinson, J.Voitechovsky, L.Clowney, A.T.Bruenger and H.Berman,
+      New parameters for the refinement of nucleic acid-containing structures
+    Acta Crystallogr. D52, 57--64 (1996).
+ 
+DSSP
+    W.Kabsch and C.Sander,
+      Dictionary of protein secondary structure: pattern
+      recognition of hydrogen bond and geometrical features
+    Biopolymers 22, 2577--2637 (1983).
+ 
+Hydrogen bond networks
+    R.W.W.Hooft, C.Sander and G.Vriend,
+      Positioning hydrogen atoms by optimizing hydrogen bond networks in
+      protein structures
+    PROTEINS, 26, 363--376 (1996).
+ 
+Matthews' Coefficient
+    B.W.Matthews
+      Solvent content of Protein Crystals
+    J. Mol. Biol. 33, 491--497 (1968).
+ 
+Peptide flips
+    Touw WG, Joosten RP, Vriend G.
+      Detection of trans-cis flips and peptide-plane flips in protein
+      structures.
+    Acta Crystallogr D Biological Crystallograhy 71, 1604-1614 (2015).
+ 
+Protein side chain planarity
+    R.W.W. Hooft, C. Sander and G. Vriend,
+      Verification of protein structures: side-chain planarity
+    J. Appl. Cryst. 29, 714--716 (1996).
+ 
+Puckering parameters
+    D.Cremer and J.A.Pople,
+      A general definition of ring puckering coordinates
+    J. Am. Chem. Soc. 97, 1354--1358 (1975).
+ 
+Quality Control
+    G.Vriend and C.Sander,
+      Quality control of protein models: directional atomic
+      contact analysis,
+    J. Appl. Cryst. 26, 47--60 (1993).
+ 
+Ramachandran plot
+    G.N.Ramachandran, C.Ramakrishnan and V.Sasisekharan,
+      Stereochemistry of Polypeptide Chain Conformations
+    J. Mol. Biol. 7, 95--99 (1963).
+    R.W.W. Hooft, C.Sander and G.Vriend,
+      Objectively judging the quality of a protein structure from a
+      Ramachandran plot
+    CABIOS (1997), 13, 425--430.
+ 
+Symmetry Checks
+    R.W.W.Hooft, C.Sander and G.Vriend,
+      Reconstruction of symmetry related molecules from protein
+      data bank (PDB) files
+    J. Appl. Cryst. 27, 1006--1009 (1994).
+ 
+Tau angle
+    W.G.Touw and G.Vriend
+      On the complexity of Engh and Huber refinement restraints: the angle
+      tau as example.
+    Acta Crystallogr D 66, 1341--1350 (2010).
+ 
+Ion Checks
+    I.D.Brown and K.K.Wu,
+      Empirical Parameters for Calculating Cation-Oxygen Bond Valences
+    Acta Cryst. B32, 1957--1959 (1975).
+ 
+    M.Nayal and E.Di Cera,
+      Valence Screening of Water in Protein Crystals Reveals Potential Na+
+      Binding Sites
+    J.Mol.Biol. 256 228--234 (1996).
+ 
+    P.Mueller, S.Koepke and G.M.Sheldrick,
+      Is the bond-valence method able to identify metal atoms in protein
+      structures?
+    Acta Cryst. D 59 32--37 (2003).
+ 
+Checking checks
+    K.Wilson, C.Sander, R.W.W.Hooft, G.Vriend, et al.
+      Who checks the checkers
+    J.Mol.Biol. (1998) 276,417-436.
+/home/vriend/Dropbox/Software/wif/dbdata/pdbout2html
